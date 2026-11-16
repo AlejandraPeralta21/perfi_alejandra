@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Mi Perfil",
+    "target": "sec-perfil",
+    "icon": "★"
+  },
+  {
+    "label": "Spotify Mix",
+    "target": "sec-musica",
+    "icon": "♫"
+  },
+  {
+    "label": "Mi Horario",
+    "target": "sec-horario",
+    "icon": "▦"
+  },
+  {
+    "label": "Favoritos",
+    "target": "sec-favoritos",
+    "icon": "♥"
+  },
+  {
+    "label": "Contacto",
+    "target": "sec-contacto",
+    "icon": "✉"
+  }
+]

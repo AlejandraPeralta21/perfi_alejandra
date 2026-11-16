@@ -1,0 +1,128 @@
+/* =====================================================================
+   ALEJANDRA SPACE · Capa de acabado visual
+   Superficies refinadas, contraste sereno y controles consistentes.
+   ===================================================================== */
+
+html[data-theme="dark"] body {
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(45, 212, 191, 0.13), transparent 36%),
+    radial-gradient(ellipse at 92% 78%, rgba(8, 145, 178, 0.12), transparent 38%),
+    linear-gradient(145deg, #061719 0%, #092326 52%, #07191b 100%);
+}
+
+html[data-theme="light"] body {
+  background-image:
+    radial-gradient(ellipse at 10% 8%, rgba(20, 184, 166, 0.13), transparent 36%),
+    radial-gradient(ellipse at 90% 82%, rgba(14, 116, 144, 0.09), transparent 38%),
+    linear-gradient(145deg, #f7fcfa 0%, #edf7f4 55%, #f5faf8 100%);
+}
+
+.ambient-orb { opacity: 0.22; filter: blur(110px); }
+
+.app-header {
+  border-radius: 18px;
+  background: var(--surface-glass-strong);
+  border-color: var(--border-glass);
+  box-shadow: 0 10px 28px rgba(2, 20, 22, 0.16);
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+}
+
+.icon-btn {
+  border-radius: 14px;
+  background: var(--surface-glass);
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.icon-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(13, 148, 136, 0.16); }
+
+.hero-badge {
+  padding: 7px 13px;
+  border-radius: 999px;
+  letter-spacing: 0.015em;
+  box-shadow: 0 5px 16px rgba(2, 20, 22, 0.08);
+}
+
+.orbit-track { border-style: solid; border-color: var(--border-glass); }
+.profile-core { box-shadow: 0 12px 30px rgba(13, 148, 136, 0.2); }
+
+.orbit-btn {
+  background: var(--surface-glass-strong);
+  border-width: 1px;
+  box-shadow: 0 8px 22px rgba(2, 20, 22, 0.16);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.orbit-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 10px 24px rgba(13, 148, 136, 0.2); }
+
+.section-title { letter-spacing: -0.025em; line-height: 1.2; }
+.section-subtitle { margin-top: 3px; letter-spacing: 0.01em; }
+.section-icon-badge { border-radius: 14px; box-shadow: 0 5px 14px rgba(13, 148, 136, 0.08); }
+
+.glass-card {
+  border-radius: 22px;
+  border-color: var(--border-glass);
+  background: linear-gradient(155deg, var(--surface-glass-strong), var(--surface-card));
+  box-shadow: 0 12px 28px rgba(2, 20, 22, 0.12);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+.glass-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-accent);
+  box-shadow: 0 16px 32px rgba(2, 20, 22, 0.16);
+}
+.card-media { border-radius: 16px; background: var(--bg-secondary); }
+.card-title { letter-spacing: -0.015em; }
+
+.tag-chip { padding: 5px 10px; border-radius: 999px; letter-spacing: 0.015em; background: var(--surface-pill); }
+
+.subcat-btn,
+.pill-btn,
+.btn-glass,
+.btn-glow {
+  border-radius: 999px;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.subcat-btn:hover,
+.pill-btn:hover,
+.btn-glass:hover:not(:disabled),
+.btn-glow:hover { transform: translateY(-1px); }
+
+.search-filter-bar,
+.spotify-player-card,
+.profile-banner-card { border-radius: 22px; }
+.search-input {
+  border-radius: 14px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.bottom-nav {
+  border-radius: 22px;
+  padding: 7px;
+  background: var(--nav-bg);
+  box-shadow: 0 12px 30px rgba(2, 20, 22, 0.2);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+}
+.bottom-nav-item {
+  min-height: 48px;
+  border-radius: 15px;
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+.bottom-nav-item.is-active { box-shadow: inset 0 0 0 1px var(--border-accent); }
+
+.app-modal { backdrop-filter: blur(12px) saturate(115%); -webkit-backdrop-filter: blur(12px) saturate(115%); }
+.modal-panel {
+  border-radius: 24px;
+  border-color: var(--border-glass);
+  box-shadow: 0 24px 64px rgba(2, 20, 22, 0.28);
+}
+
+:focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
