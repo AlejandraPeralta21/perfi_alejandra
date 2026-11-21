@@ -1,0 +1,141 @@
+/* ===== Tablet (>= 640px) ===== */
+@media (min-width: 640px) {
+  .cat-grid { gap: 16px; }
+  .cat-card { min-height: 190px; align-items: flex-start; text-align: left; padding: 18px; }
+  .cat-desc { display: block; }
+  .cat-go { display: grid; position: absolute; right: 14px; bottom: 14px; }
+  .cat-icon { font-size: 2.4rem; }
+  .subchips { grid-template-columns: repeat(4, 1fr); }
+  .tabs { flex: 1; max-width: 480px; }
+  .gallery { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .social { grid-template-columns: repeat(3, 1fr); }
+  .about-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .hero { grid-template-columns: 240px 1fr; text-align: left; justify-items: start; align-items: center; gap: 28px; }
+  .avatar { width: 100%; }
+  .lead { margin-inline: 0; }
+  .chips { justify-content: flex-start; }
+}
+
+/* ===== Laptop (>= 900px) ===== */
+@media (min-width: 900px) {
+  body { padding-bottom: 0; }
+  .bottom-nav, .menu-btn, .side-menu, .overlay { display: none; }
+  .header-in { display: flex; justify-content: space-between; gap: 16px; }
+  .brand { justify-self: auto; }
+  .top-nav { display: flex; gap: 4px; }
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+  .social { grid-template-columns: repeat(6, 1fr); }
+  .social-btn { flex-direction: column; text-align: center; padding: 18px 8px; font-size: .9rem; }
+}
+
+/* ===== Laptop ancha (>= 1100px): foto | información | decoración ===== */
+@media (min-width: 1100px) {
+  .hero { grid-template-columns: 300px 1fr 280px; gap: 36px; padding-block: 40px 20px; }
+  .hero-deco { position: relative; display: block; width: 100%; aspect-ratio: 1; border-radius: 24px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow);
+    background: radial-gradient(circle at 50% 35%, rgba(215, 25, 32, .55), transparent 60%), linear-gradient(160deg, var(--card), var(--bg2)) center / cover; }
+  .hero-deco i { position: absolute; color: var(--red); }
+  .deco-shield { font-size: 7rem; top: 12%; left: 50%; transform: translateX(-50%); }
+  .hero-deco .deco-laptop { font-size: 4.4rem; bottom: 10%; right: 12%; color: var(--text); }
+  .deco-phones { font-size: 3.4rem; bottom: 14%; left: 12%; }
+}
+
+/* ===== Móviles muy pequeños ===== */
+@media (max-width: 360px) {
+  .brand-name { font-size: .95rem; }
+  .chips li { font-size: .75rem; padding: 5px 9px; }
+}
+
+/* Intereses: tarjetas más amplias y ordenadas en pantallas de laptop */
+@media (min-width: 900px) and (max-width: 1599px) {
+  #intereses .items:not(.artist-carousel) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  #intereses .items:not(.artist-carousel) .item .ph { aspect-ratio: 16 / 9; }
+  #intereses .items:not(.artist-carousel) .item-body { padding: 14px 16px; }
+  #intereses .items:not(.artist-carousel) .item-body h4 { font-size: 1.1rem; }
+  #intereses .items:not(.artist-carousel) .item-body p { font-size: .92rem; line-height: 1.45; }
+  #intereses .artist-carousel .item { width: min(100%, 560px); }
+  #intereses .artist-card { height: clamp(320px, 46vh, 470px); }
+  #intereses .artist-carousel .item-body { padding: 14px 16px; }
+  #intereses .artist-carousel .item-body h4 { font-size: 1.15rem; }
+  #intereses .artist-carousel .item-body p { font-size: .92rem; line-height: 1.45; }
+  #intereses .artist-controls { gap: 20px; padding-top: 12px; }
+  #intereses .artist-nav { min-height: 48px; padding-inline: 18px; font-size: .95rem; }
+}
+
+
+/* Ocultar siempre las categorías principales mientras se muestra un detalle */
+#intereses .cat-grid.is-detail { display: none; }
+
+
+
+
+/* En móvil y tablet, restaurar la pantalla inicial con tres tarjetas apiladas */
+@media (max-width: 899px) {
+  #intereses .cat-grid:not(.is-detail) {
+    display: grid;
+    flex: 1 1 0;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  #intereses .cat-grid:not(.is-detail) .cat-card {
+    min-height: 0;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  #intereses .cat-grid:not(.is-detail) .cat-icon { font-size: 1.4rem; }
+  #intereses .cat-grid:not(.is-detail) .cat-desc { display: block; flex: 1; font-size: .72rem; }
+  #intereses .cat-grid:not(.is-detail) .cat-go { display: grid; position: static; flex: 0 0 34px; }
+}
+
+/* Durante una categoría abierta, mostrar solo su detalle */
+#intereses.category-open #catGrid,
+#intereses #catGrid.is-detail,
+#intereses #catGrid[hidden] { display: none; }
+
+/* Temas dinámicos del acordeón de deportes */
+#intereses .cat-detail {
+  transition: background 320ms ease, border-color 320ms ease;
+}
+#intereses .sub-title { display: flex; align-items: center; gap: 9px; }
+#intereses .sub-title > i { color: var(--sport-accent, var(--red)); font-size: 1.15em; transition: color 320ms ease, transform 320ms ease; }
+#intereses .cat-detail[class*="theme-sport-"] .sub-title > i { transform: scale(1.08); }
+#intereses .cat-detail.theme-sport-voleibol {
+  --sport-accent: #49a9ff;
+  background: linear-gradient(135deg, rgba(40, 125, 220, .2), transparent 62%);
+}
+#intereses .cat-detail.theme-sport-futsal {
+  --sport-accent: #ff8b35;
+  background: linear-gradient(135deg, rgba(242, 116, 35, .2), transparent 62%);
+}
+#intereses .cat-detail.theme-sport-natacion {
+  --sport-accent: #23c8dc;
+  background: linear-gradient(135deg, rgba(24, 176, 210, .22), transparent 62%);
+}
+#intereses .cat-detail.theme-sport-otros {
+  --sport-accent: #bd80ff;
+  background: linear-gradient(135deg, rgba(153, 91, 220, .19), transparent 62%);
+}
+#intereses .sub-content { transition: opacity 220ms ease; }
+
+/* Fondos temáticos dinámicos para todas las subcategorías */
+#intereses .cat-detail[class*="theme-musica-"] {
+  --sport-accent: #ed5c92;
+  background: linear-gradient(135deg, rgba(215, 25, 100, .2), transparent 65%);
+}
+#intereses .cat-detail.theme-musica-pop { --sport-accent: #ffb52e; background: linear-gradient(135deg, rgba(255, 181, 46, .2), transparent 65%); }
+#intereses .cat-detail.theme-musica-romantica { --sport-accent: #f16b9d; background: linear-gradient(135deg, rgba(241, 107, 157, .2), transparent 65%); }
+#intereses .cat-detail.theme-musica-playlists { --sport-accent: #9a78ee; background: linear-gradient(135deg, rgba(154, 120, 238, .2), transparent 65%); }
+#intereses .cat-detail[class*="theme-videojuegos-"] {
+  --sport-accent: #54a8ff;
+  background: linear-gradient(135deg, rgba(38, 110, 210, .22), transparent 65%);
+}
+#intereses .cat-detail.theme-videojuegos-clash { --sport-accent: #ffc24d; background: linear-gradient(135deg, rgba(255, 178, 44, .2), transparent 65%); }
+#intereses .cat-detail.theme-videojuegos-construccion { --sport-accent: #71d095; background: linear-gradient(135deg, rgba(65, 170, 110, .2), transparent 65%); }

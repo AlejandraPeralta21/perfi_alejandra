@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    /* Al abrir el archivo fuente, envía al paquete portátil clásico que sí puede ejecutarse desde file://. */
+    if (window.location.protocol === 'file:' && !/(?:^|[\\/])dist[\\/]index\.html$/i.test(window.location.pathname)) {
+      window.location.replace(new URL('./js/dist/index.html', window.location.href).href);
+    } else if (window.location.protocol === 'file:') {
+      document.documentElement.classList.add('file-app');
+    }
+  </script>
+  <title>Alejandra Space | Alejandra Peralta</title>
+  <meta name="description" content="Página personal de Alejandra Peralta: estudiante de UPDS apasionada por la tecnología, el diseño web y la ciberseguridad.">
+  <meta name="theme-color" content="#D71920">
+  <!-- El navegador lee manifest.json como configuración de instalación; no es código ejecutable. -->
+  <link rel="manifest" href="./assets/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="icon" type="image/png" href="https://www.dropbox.com/scl/fi/3y7m69penqjwv85lud4qn/alejandra.png?rlkey=253f3itj0yo514lpyc0nnat5j&raw=1">
+  <link rel="apple-touch-icon" href="https://www.dropbox.com/scl/fi/3y7m69penqjwv85lud4qn/alejandra.png?rlkey=253f3itj0yo514lpyc0nnat5j&raw=1">
+  <link rel="preconnect" href="https://www.dropbox.com" crossorigin>
+  <script>
+    /* EJECUCIÓN: hilo principal mientras el navegador interpreta <head>; aplica tema antes del primer pintado. */
+    try { document.documentElement.setAttribute('data-theme', localStorage.getItem('as-theme') || 'dark'); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Outfit:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- CSS: el motor de estilos del navegador lo interpreta al cargar esta página. -->
+  
+<link rel="stylesheet" href="./css/style.css?v=10">
+<link rel="stylesheet" href="./css/responsive.css?v=11">
+<link rel="stylesheet" href="./css/animations.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="site-header">
+    <div class="container header-in">
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="sideMenu">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+
+      <a href="#inicio" class="brand" data-target="inicio" aria-label="Alejandra Space, ir al inicio">
+        <span class="logo" aria-hidden="true"><b>A</b>P</span>
+        <span class="brand-name">Alejandra Space</span>
+      </a>
+
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link" data-target="inicio"><i class="bi bi-house-door-fill" aria-hidden="true"></i>Inicio</a>
+        <a href="#sobre-mi" class="nav-link" data-target="sobre-mi"><i class="bi bi-person" aria-hidden="true"></i>Sobre mí</a>
+        <a href="#rutina" class="nav-link" data-target="rutina"><i class="bi bi-clock-history" aria-hidden="true"></i>Mi día</a>
+        <a href="#intereses" class="nav-link" data-target="intereses"><i class="bi bi-grid" aria-hidden="true"></i>Intereses</a>
+        <a href="#espacio" class="nav-link" data-target="espacio"><i class="bi bi-stars" aria-hidden="true"></i>Mi espacio</a>
+        <a href="#galeria" class="nav-link" data-target="galeria"><i class="bi bi-image" aria-hidden="true"></i>Galería</a>
+        <a href="#contacto" class="nav-link" data-target="contacto"><i class="bi bi-envelope" aria-hidden="true"></i>Contacto</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" role="switch" aria-checked="true" aria-label="Cambiar a modo claro">
+        <span class="knob"><i class="bi bi-sun-fill k-sun" aria-hidden="true"></i><i class="bi bi-moon-stars-fill k-moon" aria-hidden="true"></i></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ LATERAL -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="sideMenu" data-hidratado="false" aria-label="Menú de navegación" aria-hidden="true">
+    <div class="side-head">
+      <span class="brand"><span class="logo" aria-hidden="true"><b>A</b>P</span><span class="brand-name">Alejandra Space</span></span>
+      <button class="icon-btn" id="menuClose" type="button" aria-label="Cerrar menú"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <nav class="side-links">
+      <a href="#inicio" class="nav-link" data-target="inicio"><i class="bi bi-house-door-fill" aria-hidden="true"></i>Inicio</a>
+      <a href="#sobre-mi" class="nav-link" data-target="sobre-mi"><i class="bi bi-person" aria-hidden="true"></i>Sobre mí</a>
+      <a href="#rutina" class="nav-link" data-target="rutina"><i class="bi bi-clock-history" aria-hidden="true"></i>Mi día</a>
+      <a href="#intereses" class="nav-link" data-target="intereses"><i class="bi bi-grid" aria-hidden="true"></i>Intereses</a>
+        <a href="#espacio" class="nav-link" data-target="espacio"><i class="bi bi-stars" aria-hidden="true"></i>Mi espacio</a>
+      <a href="#galeria" class="nav-link" data-target="galeria"><i class="bi bi-image" aria-hidden="true"></i>Galería</a>
+      <a href="#contacto" class="nav-link" data-target="contacto"><i class="bi bi-envelope" aria-hidden="true"></i>Contacto</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- INICIO -->
+    <section id="inicio" class="hero container" aria-labelledby="titulo-hero">
+      <div class="hero-photo reveal">
+        <div class="avatar ph">
+          <!--HREF PARA IMAGENES-->
+          <img
+src="https://www.dropbox.com/scl/fi/3y7m69penqjwv85lud4qn/alejandra.png?rlkey=253f3itj0yo514lpyc0nnat5j&raw=1"
+  width="320"
+  height="320"
+  fetchpriority="high"
+  decoding="async"
+  alt="Foto de Alejandra"
+>
+          <i class="bi bi-person-fill ph-icon" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="hero-info reveal">
+        <p class="script">¡Hola! Soy</p>
+        <h1 id="titulo-hero">Alejandra <span class="accent">Peralta</span></h1>
+        <div class="binary-carousel" aria-hidden="true"><span class="binary-label">01 · CÓDIGO</span><div class="binary-window"><div class="binary-track"><span>01001000 01001111 01001100 01000001 00100000 01000001 01001100 01000101 01001010 01000001 01001110 01000100 01010010 01000001 00100000</span><span>01001000 01001111 01001100 01000001 00100000 01000001 01001100 01000101 01001010 01000001 01001110 01000100 01010010 01000001 00100000</span></div></div></div>
+        <p class="lead">Soy estudiante de tercer año en la Universidad Domingo Savio (UPDS), apasionada por la tecnología, el diseño web y la ciberseguridad. Me encanta aprender cosas nuevas y desarrollar proyectos creativos.</p>
+        
+        <ul class="chips" aria-label="Datos rápidos">
+          <li><i class="bi bi-calendar3" aria-hidden="true"></i>20 años</li>
+          <li><i class="bi bi-mortarboard-fill" aria-hidden="true"></i>UPDS</li>
+          <li><i class="bi bi-layers" aria-hidden="true"></i>Tercer año</li>
+          <li><i class="bi bi-shield-check" aria-hidden="true"></i>Ciberseguridad</li>
+        </ul>
+        <blockquote class="quote">
+          <i class="bi bi-quote" aria-hidden="true"></i>
+          <p>Nunca te rindas, el que quiere lograr algo debe esforzarse por conseguirlo.</p>
+          <i class="bi bi-heart-fill heart" aria-hidden="true"></i>
+        </blockquote>
+      </div>
+
+      <div class="hero-deco" aria-hidden="true">
+        <i class="bi bi-shield-lock-fill deco-shield"></i>
+        <i class="bi bi-laptop deco-laptop"></i>
+        <i class="bi bi-headphones deco-phones"></i>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section container" aria-labelledby="titulo-sobre">
+      <h2 class="section-title reveal" id="titulo-sobre">Sobre mí</h2>
+      <p class="about-intro muted reveal">Me gusta aprender haciendo: en la universidad desarrollo mis conocimientos y, con mis proyectos personales, pongo en práctica nuevas ideas. Quiero seguir creciendo en tecnología y construir mi propio camino en Ingeniería de Sistemas.</p>
+      <div class="about-grid">
+        <dl class="card about-data reveal">
+          <div><dt><i class="bi bi-person-badge" aria-hidden="true"></i>Nombre</dt><dd>Alejandra Peralta</dd></div>
+          <div><dt><i class="bi bi-patch-check" aria-hidden="true"></i>Formación técnica</dt><dd>Técnico medio en Sistemas Informáticos</dd></div>
+          <div><dt><i class="bi bi-mortarboard" aria-hidden="true"></i>Universidad</dt><dd>Domingo Savio</dd></div>
+          <div><dt><i class="bi bi-layers" aria-hidden="true"></i>Año académico</dt><dd>Tercer año</dd></div>
+          <div><dt><i class="bi bi-shield-check" aria-hidden="true"></i>Área de interés</dt><dd>Ciberseguridad</dd></div>
+          <div><dt><i class="bi bi-controller" aria-hidden="true"></i>Pasatiempos</dt><dd>Música, videojuegos y deportes</dd></div>
+        </dl>
+        <div class="mini-grid">
+          <article class="card mini reveal"><i class="bi bi-book" aria-hidden="true"></i><h3>Mi formación</h3><p>Estudié en el Colegio Domingo Savio y obtuve el técnico medio en Sistemas Informáticos. Actualmente curso Ingeniería de Sistemas en la UPDS.</p></article>
+          <article class="card mini reveal"><i class="bi bi-cpu" aria-hidden="true"></i><h3>Lo que quiero aprender</h3><p>Me interesa crear páginas web y seguir aprendiendo sobre ciberseguridad y nuevas tecnologías.</p></article>
+          <article class="card mini reveal"><i class="bi bi-palette" aria-hidden="true"></i><h3>Mis proyectos</h3><p>Trabajo en Velora, una página para reservar autos, y en una página de repostería que aún está en proceso.</p></article>
+          <article class="card mini reveal"><i class="bi bi-heart" aria-hidden="true"></i><h3>Fuera de clase</h3><p>Disfruto la música, los videojuegos, el vóley, nadar, compartir con mi familia y conocer lugares como Cochabamba y Santa Cruz.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MI RUTINA -->
+    <section id="rutina" class="section container" aria-labelledby="titulo-rutina">
+      <h2 class="section-title reveal" id="titulo-rutina">Mi rutina diaria</h2>
+      <p class="muted reveal">Así transcurre un día entre la universidad, el gimnasio y el trabajo.</p>
+      <ol class="routine-list">
+        <li class="card routine-item reveal"><span class="routine-time">6:30</span><span class="routine-icon"><i class="bi bi-sunrise" aria-hidden="true"></i></span><div><h3>Me levanto y me alisto</h3><p>Empiezo el día y me preparo para salir.</p></div></li>
+        <li class="card routine-item reveal"><span class="routine-time">7:00</span><span class="routine-icon"><i class="bi bi-bus-front" aria-hidden="true"></i></span><div><h3>Salgo rumbo a la U</h3><p>Tomo el minibús para ir a la universidad.</p></div></li>
+        <li class="card routine-item reveal"><span class="routine-time">8:30–11:45</span><span class="routine-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></span><div><h3>Clases en la universidad</h3><p>Asisto a mis clases en la UPDS.</p></div></li>
+        <li class="card routine-item reveal"><span class="routine-time">1 hora</span><span class="routine-icon"><i class="bi bi-heart-pulse" aria-hidden="true"></i></span><div><h3>Gimnasio</h3><p>Después de clases, entreno durante una hora.</p></div></li>
+        <li class="card routine-item reveal"><span class="routine-time">14:00–21:00</span><span class="routine-icon"><i class="bi bi-briefcase" aria-hidden="true"></i></span><div><h3>Trabajo</h3><p>Luego bajo a mi trabajo, donde estoy hasta las nueve de la noche.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- INTERESES -->
+    <section id="intereses" class="section container" aria-labelledby="titulo-intereses">
+      <h2 class="section-title reveal" id="titulo-intereses">Mis intereses</h2>
+
+      <div id="catGrid" class="cat-grid">
+        <button type="button" class="cat-card reveal" data-cat="musica">
+          <span class="ph cat-bg" aria-hidden="true">
+            <img src="https://www.dropbox.com/scl/fi/65ggl5taxwe0lkptpydx4/shawmendespersonal.webp?rlkey=x3lxbfyr7zxeai0p9u24w3vul&st=her2zyq6&dl=1" alt="" width="320" height="320" loading="lazy">
+          </span>
+          <i class="bi bi-headphones cat-icon" aria-hidden="true"></i>
+          <span class="cat-name">Música</span>
+          <span class="cat-desc">Shawn Mendes, Taylor Swift, Morat, Jorge Cuéllar y más variedad.</span>
+          <span class="cat-go"><i class="bi bi-arrow-right" aria-hidden="true"></i><span class="sr-only">Explorar música</span></span>
+        </button>
+        <button type="button" class="cat-card reveal" data-cat="videojuegos">
+          <span class="ph cat-bg" aria-hidden="true">
+            <img src="https://www.dropbox.com/scl/fi/at64y3t28untm9a0yte2f/play.webp?rlkey=n93bxhljqq24wxg587i9779ip&st=wq67f3f8&raw=1" alt="" width="320" height="320" loading="lazy">
+          </span>
+          <i class="bi bi-controller cat-icon" aria-hidden="true"></i>
+          <span class="cat-name">Videojuegos</span>
+          <span class="cat-desc">Plants vs. Zombies, Clash Royale, Vice City y Free Fire.</span>
+          <span class="cat-go"><i class="bi bi-arrow-right" aria-hidden="true"></i><span class="sr-only">Explorar videojuegos</span></span>
+        </button>
+        <button type="button" class="cat-card reveal" data-cat="deportes">
+          <span class="ph cat-bg">
+          <img src="https://www.dropbox.com/scl/fi/ion01icbypndb5vnfooi3/deportes.webp?rlkey=7lfy6kgejh5ygi0a2ygr017rr&st=hwjhra4f&raw=1" alt="" width="320" height="320" loading="lazy">
+          </span>
+          <i class="bi bi-dribbble cat-icon" aria-hidden="true"></i>
+          <span class="cat-name">Deportes</span>
+          <span class="cat-desc">Voleibol, futsal, natación y más actividades.</span>
+          <span class="cat-go"><i class="bi bi-arrow-right" aria-hidden="true"></i><span class="sr-only">Explorar deportes</span></span>
+        </button>
+      </div>
+      <div id="catDetail" class="cat-detail" hidden>
+        <div class="detail-head">
+          <button type="button" class="back-btn" id="backBtn"><i class="bi bi-arrow-left" aria-hidden="true"></i>Volver</button>
+          <div class="tabs" id="catTabs" role="tablist" aria-label="Categorías"></div>
+        </div>
+        <h3 class="sub-title" id="subTitle"></h3>
+        <div class="subchips" id="subChips"></div>
+        <div class="sub-content" id="subContent" aria-live="polite"></div>
+      </div>
+      </section>
+
+    <!-- MI ESPACIO -->
+    <section id="espacio" class="section container" aria-labelledby="titulo-espacio">
+      <h2 class="section-title reveal" id="titulo-espacio">Mi espacio</h2>
+      <!-- Filtro de 3 niveles: área → categoría → detalle; js/cascade-filter.js actualiza opciones y resultado. -->
+      <div class="cascade-filter card reveal" id="cascadeFilter" aria-label="Filtro dinámico de tres niveles">
+        <label class="cascade-filter__field" for="filterArea">
+          <span>Área</span>
+          <select class="cascade-filter__select" id="filterArea">
+            <option value="">Elige área</option>
+            <option value="academico">Académico (UPDS)</option>
+            <option value="desarrollo">Desarrollo de software</option>
+          </select>
+        </label>
+        <label class="cascade-filter__field" for="filterCategory">
+          <span>Categoría</span>
+          <select class="cascade-filter__select" id="filterCategory" disabled>
+            <option value="">Elige área primero</option>
+          </select>
+        </label>
+        <label class="cascade-filter__field" for="filterDetail">
+          <span>Detalle</span>
+          <select class="cascade-filter__select" id="filterDetail" disabled>
+            <option value="">Elige categoría</option>
+          </select>
+        </label>
+        <p class="cascade-filter__result" id="filterResult" role="status" aria-live="polite">Selecciona las opciones para explorar mis estudios y proyectos.</p>
+      </div>
+      <div class="personal-grid" id="personalGrid">
+        <article class="card personal-card reveal" data-flip-card data-card-page="1">
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-bullseye personal-icon" aria-hidden="true"></i>
+              <h3>Mis metas</h3>
+              <p>Seguir avanzando en mis estudios de Ingeniería en Sistemas, aprender más sobre ciberseguridad y aplicar mis conocimientos en proyectos.</p>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-stars personal-icon" aria-hidden="true"></i>
+              <h3>Paso a paso</h3>
+              <p>Cada cosa nueva que aprendo me acerca a mis metas.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Mis metas" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+        <article class="card personal-card reveal project-panel" data-flip-card data-card-page="1">
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-code-slash personal-icon" aria-hidden="true"></i>
+              <h3>Mis proyectos</h3>
+              <div class="project-entry"><strong>Velora</strong><span>Página para reservar autos.</span></div>
+              <div class="project-entry"><strong>Repostería</strong><span>Página web en proceso.</span></div>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-lightbulb personal-icon" aria-hidden="true"></i>
+              <h3>Ideas en construcción</h3>
+              <p>Velora y mi página de repostería son proyectos donde practico y doy forma a nuevas ideas.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Mis proyectos" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+        <article class="card personal-card reveal song-panel" data-flip-card data-card-page="1">
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-music-note-list personal-icon" aria-hidden="true"></i>
+              <h3>Mis canciones favoritas</h3>
+              <p class="personal-subtitle">Jorge Cuéllar · Escúchalas en Spotify</p>
+              <a class="spotify-track" href="https://open.spotify.com/album/1UlPDOw93Ja26s9aEvba7i" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-circle-fill" aria-hidden="true"></i><span>IMU</span><i class="bi bi-spotify spotify-mark" aria-hidden="true"></i></a>
+              <a class="spotify-track" href="https://open.spotify.com/track/2bcpAh7D4BHjXo9ZGPLIdU" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-circle-fill" aria-hidden="true"></i><span>Ayayay</span><i class="bi bi-spotify spotify-mark" aria-hidden="true"></i></a>
+              <a class="spotify-track" href="https://open.spotify.com/track/6xXq5T9UCMdAobtSLm5sGG" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-circle-fill" aria-hidden="true"></i><span>YUANFEN</span><i class="bi bi-spotify spotify-mark" aria-hidden="true"></i></a>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-headphones personal-icon" aria-hidden="true"></i>
+              <h3>Más música</h3>
+              <p>Además de mis canciones favoritas, disfruto escuchar distintos estilos.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Mis canciones favoritas" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+        <article class="card personal-card reveal family-panel" data-flip-card data-card-page="1">
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-people-fill personal-icon" aria-hidden="true"></i>
+              <h3>Momentos con mi familia</h3>
+              <p>Los momentos que comparto con mi familia son muy valiosos para mí. Aquí guardo con cariño nuestros recuerdos especiales.</p>
+              <span class="family-note"><i class="bi bi-heart-fill" aria-hidden="true"></i> Mi familia, mis mejores recuerdos</span>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-heart-fill personal-icon" aria-hidden="true"></i>
+              <h3>Momentos especiales</h3>
+              <p>Los recuerdos más bonitos se hacen compartiendo tiempo con las personas que quiero.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Momentos con mi familia" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+        <article class="card personal-card reveal" data-flip-card data-card-page="2" hidden aria-hidden="true" inert>
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-mortarboard-fill personal-icon" aria-hidden="true"></i>
+              <h3>Mi formación</h3>
+              <div class="flip-facts"><strong>Técnico Medio en Sistemas Informáticos</strong><span>Estudié en el colegio Domingo Savio.</span></div>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-lightbulb personal-icon" aria-hidden="true"></i>
+              <h3>Lo que aprendí</h3>
+              <p>Mi formación técnica es parte del camino que sigo construyendo en tecnología.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Mi formación" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+        <article class="card personal-card reveal" data-flip-card data-card-page="2" hidden aria-hidden="true" inert>
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-geo-alt-fill personal-icon" aria-hidden="true"></i>
+              <h3>Lugares que visité</h3>
+              <p>He viajado a:</p>
+              <div class="place-list"><span>Cochabamba</span><span>Santa Cruz</span></div>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-map-fill personal-icon" aria-hidden="true"></i>
+              <h3>Recuerdos de viaje</h3>
+              <p>Cada lugar que conozco se vuelve parte de mis recuerdos.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Lugares que visité" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+        <article class="card personal-card reveal" data-flip-card data-card-page="2" hidden aria-hidden="true" inert>
+          <div class="flip-inner">
+            <div class="personal-face card-front">
+              <i class="bi bi-film personal-icon" aria-hidden="true"></i>
+              <h3>Películas y series</h3>
+              <div class="flip-facts"><strong>Películas</strong><span>El libro de la vida · El mundo LEGO · Barbie</span></div>
+              <div class="flip-facts"><strong>Series</strong><span>LazyTown · El juego del calamar · Welcome to Derry</span></div>
+            </div>
+            <div class="personal-face card-back" aria-hidden="true" inert>
+              <i class="bi bi-stars personal-icon" aria-hidden="true"></i>
+              <h3>Mis favoritas</h3>
+              <p>Historias para reír, emocionarme y disfrutar en mi tiempo libre.</p>
+            </div>
+          </div>
+          <button type="button" class="flip-toggle" aria-label="Voltear tarjeta: Películas y series" aria-expanded="false"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></button>
+        </article>
+      </div>
+      <div class="personal-pages" aria-label="Páginas de tarjetas">
+        <button type="button" class="page-nav" data-page-step="-1" disabled><i class="bi bi-arrow-left" aria-hidden="true"></i>Anterior</button>
+        <span id="personalPageLabel" aria-live="polite">Página 1 de 2</span>
+        <button type="button" class="page-nav" data-page-step="1">Siguiente<i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+      </div>    </section>
+    <!-- GALERÍA -->
+    <section id="galeria" class="section container" aria-labelledby="titulo-galeria">
+      <h2 class="section-title reveal" id="titulo-galeria">Galería</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container" aria-labelledby="titulo-contacto">
+      <h2 class="section-title reveal" id="titulo-contacto">Contacto</h2>
+      <div class="contact-title-row"><p class="muted reveal">Déjame un mensaje o sígueme en mis redes.</p><div class="pwa-tools"><span class="network-status is-online" id="networkStatus" role="status" aria-live="polite"><i class="bi bi-wifi" aria-hidden="true"></i><span>En línea</span></span><button type="button" class="install-pwa" id="installPwa" hidden><i class="bi bi-download" aria-hidden="true"></i>Instalar</button><a href="#admin" data-target="admin" class="admin-entry"><i class="bi bi-shield-lock" aria-hidden="true"></i>Acceso admin</a></div></div>
+      <div class="contact-layout">
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="contact-fields">
+            <div class="form-field">
+              <label for="contactName">Nombre</label>
+              <input id="contactName" name="name" type="text" autocomplete="name" minlength="2" maxlength="60" required aria-describedby="nameError">
+              <small class="field-error" id="nameError"></small>
+            </div>
+            <div class="form-field">
+              <label for="contactEmail">Correo electrónico</label>
+              <input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="120" placeholder="nombre@correo.com" required aria-describedby="emailError">
+              <small class="field-error" id="emailError"></small>
+            </div>
+            <div class="form-field">
+              <label for="contactPhone">Teléfono <span class="muted">(8 dígitos)</span></label>
+              <div class="phone-input-group">
+                <select id="contactCountryCode" name="countryCode" aria-label="Código de país">
+                  <option value="+591" selected>BO +591</option>
+                  <option value="+54">AR +54</option>
+                  <option value="+55">BR +55</option>
+                  <option value="+56">CL +56</option>
+                  <option value="+57">CO +57</option>
+                  <option value="+593">EC +593</option>
+                  <option value="+34">ES +34</option>
+                  <option value="+52">MX +52</option>
+                  <option value="+595">PY +595</option>
+                  <option value="+51">PE +51</option>
+                  <option value="+598">UY +598</option>
+                  <option value="+1">US/CA +1</option>
+                </select>
+                <input id="contactPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" minlength="8" maxlength="8" pattern="[0-9]{8}" placeholder="70012345" aria-describedby="phoneError">
+              </div>
+              <small class="field-error" id="phoneError"></small>
+            </div>
+            <div class="form-field">
+              <label for="contactReason">Motivo</label>
+              <select id="contactReason" name="reason" required aria-describedby="reasonError">
+                <option value="">Elige un motivo</option>
+                <option value="Consulta">Consulta</option>
+                <option value="Proyecto">Proyecto</option>
+                <option value="Colaboración">Colaboración</option>
+                <option value="Otro">Otro</option>
+              </select>
+              <small class="field-error" id="reasonError"></small>
+            </div>
+            <div class="form-field">
+              <label for="contactPreference">Prefiero respuesta por</label>
+              <select id="contactPreference" name="contactPreference" required aria-describedby="preferenceError">
+                <option value="">Elige un medio</option>
+                <option value="Correo electrónico">Correo electrónico</option>
+                <option value="WhatsApp">WhatsApp</option>
+              </select>
+              <small class="field-error" id="preferenceError"></small>
+            </div>
+            <div class="form-field field-wide">
+              <label for="contactSubject">Asunto</label>
+              <input id="contactSubject" name="subject" type="text" minlength="3" maxlength="80" required aria-describedby="subjectError">
+              <small class="field-error" id="subjectError"></small>
+            </div>
+            <div class="form-field field-wide">
+              <label for="contactMessage">Mensaje</label>
+              <textarea id="contactMessage" name="message" rows="3" minlength="10" maxlength="600" required aria-describedby="messageError"></textarea>
+              <small class="field-error" id="messageError"></small>
+            </div>
+          </div>
+          <button class="contact-submit" type="submit"><i class="bi bi-check2-circle" aria-hidden="true"></i>Enviar mensaje</button>
+          <p class="form-note">El mensaje se guarda en este navegador y aparece en el panel de administración.</p>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+        <div class="social" id="social" aria-label="Redes sociales"></div>
+      </div>
+    </section>
+
+    <!-- ADMINISTRACIÓN -->
+    <section id="admin" class="section container" aria-labelledby="titulo-admin">
+      <div class="admin-header">
+        <h2 class="section-title" id="titulo-admin">Administración</h2>
+        <a href="#contacto" data-target="contacto" class="back-btn"><i class="bi bi-arrow-left" aria-hidden="true"></i>Volver a contacto</a>
+      </div>
+      <p class="admin-note"><i class="bi bi-info-circle" aria-hidden="true"></i>Demostración local: el acceso, los mensajes y las bitácoras se guardan solo en este navegador. No es autenticación segura ni sincroniza datos de otros dispositivos.</p>
+
+      <div class="admin-gate" id="adminGate">
+        <form class="admin-auth card" id="adminSetup" hidden>
+          <i class="bi bi-shield-lock-fill admin-auth-icon" aria-hidden="true"></i>
+          <h3>Crear acceso administrador</h3>
+          <p>Configura un usuario y contraseña para esta demostración en este navegador.</p>
+          <label for="setupUsername">Usuario</label>
+          <input id="setupUsername" name="username" type="text" minlength="3" maxlength="40" autocomplete="username" required>
+          <label for="setupPassword">Contraseña</label>
+          <input id="setupPassword" name="password" type="password" minlength="8" autocomplete="new-password" required>
+          <label for="setupPasswordConfirm">Confirmar contraseña</label>
+          <input id="setupPasswordConfirm" name="passwordConfirm" type="password" minlength="8" autocomplete="new-password" required>
+          <button class="contact-submit" type="submit">Crear acceso</button>
+          <p class="admin-auth-status" id="setupStatus" role="status" aria-live="polite"></p>
+        </form>
+        <form class="admin-auth card" id="adminLogin" hidden>
+          <i class="bi bi-person-lock admin-auth-icon" aria-hidden="true"></i>
+          <h3>Iniciar sesión</h3>
+          <label for="adminUsername">Usuario</label>
+          <input id="adminUsername" name="username" type="text" autocomplete="username" required>
+          <label for="adminPassword">Contraseña</label>
+          <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+          <button class="contact-submit" type="submit">Entrar al panel</button>
+          <p class="admin-auth-status" id="loginStatus" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="admin-dashboard" id="adminDashboard" hidden>
+        <div class="admin-bar"><h3>Panel de administración</h3><button type="button" class="admin-logout" id="adminLogout"><i class="bi bi-box-arrow-right" aria-hidden="true"></i>Salir</button></div>
+        <div class="admin-tabs" role="tablist" aria-label="Paneles de administración">
+          <button type="button" class="admin-tab active" data-admin-panel="logs" role="tab" aria-selected="true"><i class="bi bi-journal-text" aria-hidden="true"></i>Bitácoras</button>
+          <button type="button" class="admin-tab" data-admin-panel="messages" role="tab" aria-selected="false"><i class="bi bi-envelope" aria-hidden="true"></i>Mensajes <span id="messageCount">0</span></button>
+        </div>
+        <section class="admin-panel site-log-panel" id="adminLogsPanel" aria-label="Bitácora del funcionamiento de la página">
+          <div class="site-log-heading">
+            <h3>Bitácora de la página</h3>
+            <label class="log-filter-label" for="eventFilter">Filtrar</label>
+            <select id="eventFilter" aria-label="Filtrar bitácoras">
+              <option value="all">Todos los eventos</option>
+              <option value="navigation">Navegación</option>
+              <option value="interests">Intereses</option>
+              <option value="cards">Tarjetas</option>
+              <option value="gallery">Galería</option>
+              <option value="contact">Formulario</option>
+              <option value="appearance">Apariencia</option>
+            </select>
+          </div>
+          <p class="site-log-hint">Aquí aparecen las acciones realizadas al recorrer y usar la página en este navegador.</p>
+          <ol id="siteLogList" class="admin-log-list"></ol>
+          <p class="empty-log" id="siteLogEmpty">Todavía no hay actividad registrada. Navega por la página para crear eventos.</p>
+        </section>
+        <section class="admin-panel messages-panel" id="adminMessagesPanel" aria-label="Mensajes recibidos" hidden>
+          <div class="messages-heading"><h3>Mensajes del formulario</h3><span id="messageTotal">0 recibidos</span></div>
+          <div class="message-list" id="messageList"></div>
+          <p class="empty-messages" id="emptyMessages">Todavía no hay mensajes guardados en este navegador.</p>
+        </section>
+      </div>
+    </section>  </main>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> Alejandra Space · Alejandra Peralta</p>
+  </footer>
+
+  <!-- NAVEGACIÓN INFERIOR (celular) -->
+  <nav class="bottom-nav" aria-label="Navegación inferior">
+    <a href="#inicio" class="nav-link" data-target="inicio"><i class="bi bi-house-door-fill" aria-hidden="true"></i><span>Inicio</span></a>
+    <a href="#sobre-mi" class="nav-link" data-target="sobre-mi"><i class="bi bi-person" aria-hidden="true"></i><span>Sobre mí</span></a>
+    <a href="#rutina" class="nav-link" data-target="rutina"><i class="bi bi-clock-history" aria-hidden="true"></i><span>Mi día</span></a>
+    <a href="#intereses" class="nav-link" data-target="intereses"><i class="bi bi-grid" aria-hidden="true"></i><span>Intereses</span></a>
+<a href="#espacio" class="nav-link" data-target="espacio"><i class="bi bi-stars" aria-hidden="true"></i><span>Mi espacio</span></a>
+    <a href="#galeria" class="nav-link" data-target="galeria"><i class="bi bi-image" aria-hidden="true"></i><span>Galería</span></a>
+    <a href="#contacto" class="nav-link" data-target="contacto"><i class="bi bi-envelope" aria-hidden="true"></i><span>Contacto</span></a>
+  </nav>
+
+  <!-- AVISO FLOTANTE DEL FORMULARIO -->
+  <div class="toast-alert" id="contactToast" role="status" aria-live="polite" aria-atomic="true" style="display:none">
+    <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+    <span id="contactToastMessage"></span>
+  </div>
+  <!-- CONFIRMACIÓN EXPIRABLE DEL FORMULARIO -->
+  <div class="confirm-modal" id="contactConfirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmDescription" hidden>
+    <div class="confirm-card">
+      <span class="confirm-icon"><i class="bi bi-hourglass-split" aria-hidden="true"></i></span>
+      <h3 id="confirmTitle">Confirma tu mensaje</h3>
+      <p id="confirmDescription">Confirma el envío antes de que termine el tiempo.</p>
+      <div class="confirm-countdown" id="confirmCountdown" aria-live="off">00:30</div>
+      <div class="confirm-actions">
+        <button type="button" class="confirm-cancel" id="cancelContactConfirm">Cancelar</button>
+        <button type="button" class="confirm-accept" id="acceptContactConfirm">Confirmar envío</button>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL DE GALERÍA -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotografía ampliada" hidden>
+    <button type="button" class="icon-btn lb-close" id="lbClose" aria-label="Cerrar fotografía"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <figure class="lb-fig">
+      <div class="ph lb-ph"><img id="lbImg" src="" alt=""><i class="bi bi-image ph-icon" aria-hidden="true"></i></div>
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+  </div>
+
+  <!-- PUNTO DE ENTRADA DEL CLIENTE: jQuery queda global; Vite agrupa los módulos ES desde app.js. -->
+  <!-- DOMPurify limpia contenido HTML antes de permitir su renderizado dinámico; el SW guarda esta dependencia para uso offline. -->
+  <script async src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script id="categoryDataFallback" type="application/json">{"musica":{"name":"Música","icon":"bi-headphones","subs":[{"id":"artistas","name":"Artistas favoritos","icon":"bi-star","text":"Mis artistas favoritos son Shawn Mendes, Taylor Swift, Morat, Jorge Cuéllar y muchos más.","items":[{"n":"Shawn Mendes","d":"Cantautor canadiense de pop, con baladas y letras muy personales.","img":"https://www.dropbox.com/scl/fi/mmpmpghpmi7ncar3ekipv/shawmendesadentro.webp?rlkey=52wdhcof2hj3o9c3i14zjwkcr&st=p4ny4r7w&raw=1","songs":["Treat You Better","Stitches","There’s Nothing Holdin’ Me Back"]},{"n":"Taylor Swift","d":"Cantautora estadounidense que cuenta historias en cada canción.","img":"https://www.dropbox.com/scl/fi/wmh4ws2xsdhp9g8z4j4xw/tylor.webp?rlkey=u67nli9iyydor685a073gzr4y&st=i29zrspg&raw=1","songs":["Style","Daylight","Cruel Summer"]},{"n":"Morat","d":"Banda de pop con letras románticas para cantar a coro.","img":"https://www.dropbox.com/scl/fi/wh1t496gishozls3on0xl/morat.webp?rlkey=x1a6d2cuq1817amscqr9apkgo&st=l1jx6pmj&raw=1","songs":["No Se Va","Besos en Guerra","Cuando Nadie Ve"]},{"n":"Jorge Cuéllar","d":"Uno de mis artistas favoritos.","img":"https://www.dropbox.com/scl/fi/68fnblkiws8w0ublqjmhc/jorgecuellar.webp?rlkey=ubx959zdmpp05iwybwy6wokdk&st=m6xcap4w&raw=1","songs":["IMU","YUANFEN","Ayayay"]},{"n":"Tiago PZK","d":"Uno de los artistas que disfruto escuchar.","img":"https://www.dropbox.com/scl/fi/ecgrac4adkogbfm9c7lqq/tiago.webp?rlkey=rvozyekq299wsaik4k6a2ez8j&st=5o2rdvoa&raw=1","songs":["Entre Nosotros","Que se parezca a ti","Por amarte a ti"]},{"n":"Kea","d":"También forma parte de mis artistas favoritos.","img":"https://www.dropbox.com/scl/fi/5ueczx548ko1gkh26eitx/khea.webp?rlkey=7xneqqrs8o3ljps0rpzzcxik9&st=6vayogry&raw=1","songs":["Mi señora","Hola perdida"]},{"n":"Nicki Nicole","d":"Una de las artistas que escucho.","img":"https://www.dropbox.com/scl/fi/e5tlvoell32zcziwmunop/nickinicole.webp?rlkey=hpctemvgzk8qmlf2wdy651lfg&st=9gykz0cr&raw=1","songs":["Ojos verdes","Otra noche","Mamichula"]},{"n":"Camilo","d":"Me gusta escuchar sus canciones.","img":"https://www.dropbox.com/scl/fi/9n5buy1a2er0gl1bygrh6/camilo.webp?rlkey=4948jhrgf2bw9jdmh1n86u87h&st=geb89li4&raw=1","songs":["Vida de Rico","Tutu","Favorito"]},{"n":"Wisin & Yandel","d":"También disfruto su música.","img":"https://www.dropbox.com/scl/fi/l79kzy680gl1xx6masmgn/wisin-y-yandel.webp?rlkey=455mhpxvcx610uktbrzfe1ku9&st=p8wp5po4&raw=1","songs":["Rakata","Abusadora","Algo Me Gusta de Ti"]}]},{"id":"pop","name":"Pop","icon":"bi-music-note-beamed","text":"Además de mis favoritos, escucho música variada según mi ánimo.","items":[{"n":"Música para cada momento","d":"Me gusta descubrir canciones y escuchar distintos estilos.","img":"https://www.dropbox.com/scl/fi/c9z6bk5otbdnceji90t9f/michael.webp?rlkey=oj4tge7710pzn41rx1ma1mw6m&st=jfvtj51s&raw=1","songs":[{"title":"Human Nature","artist":"Michael Jackson"},{"title":"Bad","artist":"Michael Jackson"},{"title":"Billie Jean","artist":"Michael Jackson"}]},{"n":"Nuevos descubrimientos","d":"Siempre hay espacio para encontrar artistas y canciones nuevas.","img":"https://www.dropbox.com/scl/fi/92z7up8e5bwrcky8a7b7t/musica.webp?rlkey=w5togldjxsng3si83kn4ogim9&st=47rqyjdp&raw=1","songs":[{"title":"Casi","artist":"Jota Narbaja"},{"title":"La Cita","artist":"Explosión Cumbiera"},{"title":"El Teléfono","artist":"Explosión Cumbiera"},{"title":"Un Solo Motivo","artist":"Explosión Cumbiera"}]}]},{"id":"romantica","name":"Música romántica","icon":"bi-heart-fill","text":"Canciones con historias y sentimientos.","items":[{"n":"Baladas","d":"Letras que se quedan en la cabeza.","img":"https://www.dropbox.com/scl/fi/7lkyk6eu9x80kwmpjyvn4/musica-romatica.webp?rlkey=nup5srk183cbfesxhizdn28vj&st=zfzah7ea&raw=1","songs":[{"title":"YUANFEN","artist":"Jorge Cuéllar"},{"title":"Noviembre Sin Ti","artist":"Reik"},{"title":"Creo en Ti","artist":"Reik"},{"title":"La Misma Luna","artist":"Matisse"},{"title":"Azul","artist":"Cristian Castro"}]},{"n":"Para dedicar","d":"Canciones que cuentan lo que a veces no se dice.","img":"https://www.dropbox.com/scl/fi/9lygec0m5c4e9qa27plcy/yuanfen.webp?rlkey=thdzrmixb0fsnetj7q04omeoq&st=39xgcxah&raw=1","songs":[{"title":"Ya Me Enteré","artist":"Reik"},{"title":"Todavía","artist":"Matisse"},{"title":"Por Amarte Así","artist":"Cristian Castro"}]}]},{"id":"playlists","name":"Playlists","icon":"bi-list-ul","text":"La música que elijo cambia según lo que estoy haciendo.","items":[{"n":"Para relajarme","d":"Canciones para disfrutar y descansar.","img":"https://www.dropbox.com/scl/fi/imqb0st8mniorqu2lz8eg/joseluis.webp?rlkey=bc58tjrhtac8ja0fag90eihqa&st=vals4w8a&raw=1","songs":[{"title":"Un Velero Llamado Libertad","artist":"José Luis Perales"},{"title":"¿Y Cómo Es Él?","artist":"José Luis Perales"},{"title":"Me Llamas","artist":"José Luis Perales"}]},{"n":"Para animarme","d":"Música que acompaña mis momentos con energía.","img":"https://www.dropbox.com/scl/fi/n54fjels8iyh1qtioawm7/entrenar.webp?rlkey=1o6a2xppu964ysixjhv5banh2&st=qp18677j&raw=1","songs":[{"title":"Pepas","artist":"Farruko"},{"title":"Chillax","artist":"Farruko"},{"title":"Reggaetón Lento (Bailemos)","artist":"CNCO"},{"title":"Hey DJ","artist":"CNCO"}]}]}]},"videojuegos":{"name":"Videojuegos","icon":"bi-controller","subs":[{"id":"pvz","name":"Plants vs. Zombies","icon":"bi-flower1","text":"Ya completé todos los niveles. Usa los botones para recorrer sus cinco escenarios.","items":[{"n":"Día","d":"Niveles 1-1, 1-2, 1-3, 1-4, 1-5, 1-6, 1-7, 1-8, 1-9 y 1-10.","img":"https://www.dropbox.com/scl/fi/0tr45l2nqfuyofjcrt1gj/pvzdia.webp?rlkey=cs3hmlvpvaljfbninjak06mrc&st=1iz8rmug&raw=1"},{"n":"Noche","d":"Niveles 2-1, 2-2, 2-3, 2-4, 2-5, 2-6, 2-7, 2-8, 2-9 y 2-10.","img":"https://www.dropbox.com/scl/fi/a4bvyc7m9jwig2gbei17t/pvznoche.webp?rlkey=apb0vmolssnjdx7ojcrybvjkt&st=6d3ghgis&raw=1"},{"n":"Piscina","d":"Niveles 3-1, 3-2, 3-3, 3-4, 3-5, 3-6, 3-7, 3-8, 3-9 y 3-10.","img":"https://www.dropbox.com/scl/fi/5za40skk57u115af8kao6/pvzpiscina.webp?rlkey=zoj9bdfijlzezw0vayxylp1rv&st=jovnzmj2&raw=1"},{"n":"Niebla","d":"Niveles 4-1, 4-2, 4-3, 4-4, 4-5, 4-6, 4-7, 4-8, 4-9 y 4-10. El 4-5 ocurre de noche.","img":"https://www.dropbox.com/scl/fi/4equ9ljj4a1qd822rouob/pvzniebla.webp?rlkey=2ja9xqg6txp2j5u9a4zm7j515&st=0xv0m448&raw=1"},{"n":"Tejado","d":"Niveles 5-1, 5-2, 5-3, 5-4, 5-5, 5-6, 5-7, 5-8, 5-9 y 5-10. El 5-10 es en el tejado nocturno.","img":"https://www.dropbox.com/scl/fi/h6635zibj8wvkzjstpcgh/pvztejado.webp?rlkey=iwv16aduzu1ygjl3j7qgvohpb&st=qkqxpp9k&raw=1"}]},{"id":"clash","name":"Clash Royale","icon":"bi-shield-shaded","text":"He llegado hasta la Arena 6. Usa los botones para recorrer mi progreso.","items":[{"n":"Arena 1","d":"Una de las arenas por las que avancé antes de llegar a la Arena 6.","img":"https://www.dropbox.com/scl/fi/zhwkc2b2hgf1a7uopg00b/arena1.webp?rlkey=h01egr2anwilp3h2ncbismkpq&st=6ttlnyvj&raw=1"},{"n":"Arena 2","d":"Una de las arenas por las que avancé antes de llegar a la Arena 6.","img":"https://www.dropbox.com/scl/fi/07gq6f1a0kct9w99fajjt/arena2.webp?rlkey=9w2kz35bt5eyjuh0gk3hymmr6&st=a1aas9g5&raw=1"},{"n":"Arena 3","d":"Una de las arenas por las que avancé antes de llegar a la Arena 6.","img":"https://www.dropbox.com/scl/fi/p86k687flmujpgpio7ghx/arena3.webp?rlkey=wqqk83lw7j8wzdyrnqm11tmds&st=ftg3yaix&raw=1"},{"n":"Arena 4","d":"Una de las arenas por las que avancé antes de llegar a la Arena 6.","img":"https://www.dropbox.com/scl/fi/n6hn7vozmo4ox9d9ixr2f/arena4.webp?rlkey=i6oq61qrqi09mkl2qoteaibx4&st=80b5ylsu&raw=1"},{"n":"Arena 5","d":"Una de las arenas por las que avancé antes de llegar a la Arena 6.","img":"https://www.dropbox.com/scl/fi/zzt4r1xomy7xs4nylp6sg/arena5.webp?rlkey=xiws0qhob8802cihnsojkan0r&st=ywerllww&raw=1"},{"n":"Arena 6","d":"Mi progreso actual: llegué hasta esta arena.","img":"https://www.dropbox.com/scl/fi/7yd1xskota5bcaih5t1be/arena6.webp?rlkey=x5rhws4ze3iq0qqmof90dj97u&st=zln8tcqn&raw=1"}]},{"id":"favoritos","name":"Mis juegos favoritos","icon":"bi-trophy","text":"También juego Vice City y Free Fire. En Clash Royale llegué hasta la Arena 6, y ya completé todos los niveles de Plants vs. Zombies.","items":[{"n":"Vice City","d":"Un juego de mundo abierto que forma parte de mis favoritos. Voy avanzando por sus misiones.","img":"https://www.dropbox.com/scl/fi/ormmyau82hgu8clpgghsq/vice.webp?rlkey=wjnb6odrlp1jvnf99ffb4dgki&st=s8j5js05&raw=1"},{"n":"Free Fire","d":"También disfruto jugar partidas de Free Fire.","img":"https://www.dropbox.com/scl/fi/r7pgptdnwuhgy672z2unn/freefire.webp?rlkey=a6jjmdqpvls6ufya83y1w9w84&st=y5fqn0s3&raw=1"}]},{"id":"construccion","name":"Construcción","icon":"bi-bricks","text":"También me gusta crear y armar cosas con mis manos.","items":[{"n":"LEGO","d":"Me gusta armar modelos y construcciones con piezas LEGO.","img":"https://www.dropbox.com/scl/fi/mc56p40orx47oxrcnpjv7/lego.webp?rlkey=1g47cm7d9jssaiqkhum9f4nqj&st=jkm3qo3v&raw=1"}]}]},"deportes":{"name":"Deportes","icon":"bi-dribbble","subs":[{"id":"voleibol","name":"Voleibol","icon":"bi-circle","text":"El voleibol es uno de los deportes que practico.","items":[{"n":"Remate y bloqueo","d":"La parte más emocionante de cada punto.","img":"https://www.dropbox.com/scl/fi/ng3r4jsa8a6946gcs6z9j/voley.webp?rlkey=gs19ombgwaplo71s6fvo00s97&st=f0ypzpk2&raw=1"},{"n":"Saque y recepción","d":"La base para ganar el partido.","img":"https://www.dropbox.com/scl/fi/gl20dtlxpiwsarxana4gd/vaoleysque.webp?rlkey=azbhheb4r8m5bwz6tg9uopdpf&st=9cv8nycc&raw=1"}]},{"id":"futsal","name":"Futsal","icon":"bi-bullseye","text":"Practico futsal de vez en cuando y disfruto compartir en equipo.","items":[{"n":"Partidos con amigos","d":"Velocidad y coordinación en cancha pequeña.","img":"https://www.dropbox.com/scl/fi/dhhk9fpbai8hgsa8opcfx/futsal.webp?rlkey=didfk8zgbmttpwjcjilm0ye9a&st=e34wms91&raw=1"}]},{"id":"natacion","name":"Natación","icon":"bi-water","text":"Me gusta nadar y disfrutar de la actividad en el agua.","items":[{"n":"Nadar","d":"Una de las actividades que disfruto practicar.","img":"https://www.dropbox.com/scl/fi/zepxfamfr362xc3s73hom/natacion.webp?rlkey=fxfgiyqv4tfcuym0ebocabayr&st=7cfpw1gy&raw=1"}]},{"id":"otros","name":"Otras actividades","icon":"bi-stars","text":"También me gusta probar distintas actividades y mantenerme activa.","items":[{"n":"Probar cosas nuevas","d":"Disfruto hacer varias actividades además de mis deportes favoritos.","img":"https://www.dropbox.com/scl/fi/amiehenrpqv9vo49wxnfu/basquet.webp?rlkey=a56zckno57i2ytdo475cbxqup&st=axwhr1dr&raw=1"}]}]}}</script>
+<script src="./assets/index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
