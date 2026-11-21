@@ -1,0 +1,21 @@
+{
+  "id": "../index.html",
+  "name": "Karaoke Tulum | Karaoke Lounge VIP",
+  "short_name": "Karaoke Tulum",
+  "description": "Catálogo musical, salas privadas y reservas de Karaoke Tulum.",
+  "start_url": "../index.html",
+  "scope": "../",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "icons": [
+    {
+      "src": "assets/icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
+

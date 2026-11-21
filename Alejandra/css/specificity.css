@@ -1,0 +1,24 @@
+/* ESPECIFICIDAD CSS (sin !important):
+   ID (1,0,0) > clase/estado (0,1,0) > elemento (0,0,1).
+   Se elevan selectores solo dentro de la aplicación para que foco/selección
+   del menú prevalezcan sobre estilos genéricos sin alterar el resto del tema. */
+.app .side .menu .mi:hover,
+.app .side .menu .mi:focus-visible {
+  border-color: var(--gold);
+}
+
+.app .side .menu .mi.active {
+  background: var(--gold);
+  color: var(--on-gold);
+}
+
+body.alto-contraste .app .side .menu .mi.active {
+  background: #ffff00;
+  color: #000000;
+  outline-color: #00ffff;
+}
+
+.app .top .topnav a.active {
+  color: var(--gold-t);
+  font-weight: 600;
+}

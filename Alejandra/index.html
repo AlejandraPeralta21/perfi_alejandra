@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<!-- RESPONSIVO/PWA: un solo HTML adaptable y habilitado para instalación en cualquier orientación. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="js/manifest.json">
+<link rel="icon" href="js/assets/icons/app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="js/assets/icons/app-icon.svg">
+<title>Karaoke Tulum | Karaoke Lounge VIP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/auth.css">
+<!-- ACCESIBILIDAD: foco de teclado, paleta de alto contraste y controles claros. -->
+<link rel="stylesheet" href="css/accessibility.css">
+<!-- ESPECIFICIDAD CSS: estados de foco y navegación con prioridades controladas. -->
+<link rel="stylesheet" href="css/specificity.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+<symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+<symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a3 3 0 013-3h10a3 3 0 013 3v3"/><path d="M2 14a2 2 0 014 0v1h12v-1a2 2 0 014 0v4H2z"/><path d="M5 18v2M19 18v2"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><path d="M12 14v3"/></symbol>
+<symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H6a2 2 0 00-2 2v12a2 2 0 002 2h4"/><path d="M15 8l4 4-4 4M19 12H9"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c3 0 5 2 5 5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+<symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v4"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.8-8 11-8 11z"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="i-hat" viewBox="0 0 24 24"><path d="M2 16c4 1.5 16 1.5 20 0"/><path d="M6 15c0-5 2-9 6-9s6 4 6 9"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-diamond" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/></symbol>
+<symbol id="i-mountain" viewBox="0 0 24 24"><path d="M3 20l6-11 4 6 3-4 5 9z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 13A9 9 0 1111 3a7 7 0 0010 10z"/></symbol>
+<symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></symbol>
+<symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 000-18z"/></symbol>
+</defs></svg>
+
+<div class="app">
+  <header class="top">
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="side"><span></span><span></span><span></span></button>
+    <a class="brand" href="#home" data-view="home" aria-label="Karaoke Tulum, ir al inicio">
+      <span class="logo"><img src="js/assets/logo/logo.png" alt="Logo de Karaoke Tulum"></span>
+      <span class="brand-txt"><b>KARAOKE TULUM</b><small>KARAOKE LOUNGE VIP</small></span>
+    </a>
+    <nav class="topnav" aria-label="Principal">
+      <a href="#home" data-view="home"><svg class="ic"><use href="#i-home"/></svg><span>Inicio</span></a>
+      <a href="#catalogo" data-view="catalogo"><svg class="ic"><use href="#i-music"/></svg><span>Catálogo</span></a>
+      <a href="#salas" data-view="salas"><svg class="ic"><use href="#i-users"/></svg><span>Salas</span></a>
+      <a href="#reservas" data-view="reservas"><svg class="ic"><use href="#i-calendar"/></svg><span>Reservas</span></a>
+      <a href="#promociones" data-view="promociones"><svg class="ic"><use href="#i-tag"/></svg><span>Promociones</span></a>
+    </nav>
+    <div class="top-actions">
+      <span class="user-chip" id="userChip" hidden></span>
+      <span class="network-status" id="networkStatus" role="status" aria-live="polite"><i></i><span>Comprobando conexión</span></span>
+      <button class="switch" id="themeToggle" role="switch" aria-checked="true" aria-label="Modo oscuro">
+        <svg class="ic sun"><use href="#i-sun"/></svg><svg class="ic moon"><use href="#i-moon"/></svg><span class="knob"></span>
+      </button>
+      <button class="avatar" id="accountBtn" data-view="perfil" aria-label="Iniciar sesión"><svg class="ic"><use href="#i-user"/></svg></button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="side" id="side" aria-label="Menú lateral" aria-hidden="true" inert data-hidratado="false">
+      <div class="side-in">
+        <div class="side-brand"><span class="logo lg"><img src="js/assets/logo/logo.png" alt="" data-a11y-decorative="true"></span><b>KARAOKE<br>TULUM</b></div>
+        <ul class="menu">
+          <!-- Accesibilidad: demostraciones al inicio del menú para encontrarlas sin desplazarse. -->
+          <li style="--i:0" id="sideContrast"><button class="mi" id="btnSimularContraste" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-contrast"/></svg>Alto contraste</button></li>
+          <!-- SMOKE TEST: auditoría manual en vivo del DOM. -->
+          <li class="panel-auditoria" style="--i:1"><button class="mi" id="btnSmokeTest" type="button"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>Ejecutar Smoke Test DOM</button><p id="salidaAudit" aria-live="polite">Estado: listo para verificar.</p></li>
+          <!-- AUDITORÍA HTML5: inspección semántica en vivo sin recargar la aplicación. -->
+          <li class="panel-auditoria" style="--i:2"><button class="mi" id="btnAuditarA11Y" type="button" aria-controls="reporteA11Y"><svg class="ic" aria-hidden="true"><use href="#i-contrast"/></svg>Verificar Semántica HTML5 (Sin Recarga)</button><p id="reporteA11Y" role="status" aria-live="polite">Estado: listo para auditar.</p></li>
+          <!-- PWA: aparece solo si el navegador ofrece instalación de la aplicación. -->
+          <li style="--i:3" id="sideInstall" hidden><button class="mi" id="btnInstalarPWA" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>Instalar aplicación</button></li>
+          <li style="--i:4"><a class="mi" href="#home" data-view="home"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg>Inicio</a></li>
+          <li style="--i:5" class="has-sub" id="catItem">
+            <button class="mi" id="catToggle" type="button" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-music"/></svg>Catálogo<svg class="ic chev" aria-hidden="true"><use href="#i-down"/></svg></button>
+            <div class="sub"><ul>
+              <li><a class="mi" href="#catalogo" data-view="catalogo" data-mode="artistas">Artistas</a></li>
+              <li><a class="mi" href="#catalogo" data-view="catalogo" data-mode="canciones">Canciones</a></li>
+              <li><a class="mi" href="#catalogo" data-view="catalogo" data-mode="generos">Géneros musicales</a></li>
+            </ul></div>
+          </li>
+          <li style="--i:6"><a class="mi" href="#salas" data-view="salas"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Salas</a></li>
+          <li style="--i:7"><a class="mi" href="#reservas" data-view="reservas"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Reservas</a></li>
+          <li style="--i:8"><a class="mi" href="#promociones" data-view="promociones"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg>Promociones</a></li>
+          <li style="--i:9"><a class="mi" href="#mis-reservas" data-view="mis-reservas"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Mis reservas</a></li>
+          <li class="admin-menu-item" style="--i:0"><button type="button" class="mi" data-admin-menu-tab="bookings"><svg class="ic"><use href="#i-calendar"/></svg>Reservas</button></li>
+          <li class="admin-menu-item" style="--i:1"><button type="button" class="mi" data-admin-menu-tab="music"><svg class="ic"><use href="#i-music"/></svg>Música</button></li>
+          <li class="admin-menu-item" style="--i:2"><button type="button" class="mi" data-admin-menu-tab="users"><svg class="ic"><use href="#i-users"/></svg>Usuarios</button></li>
+          <li class="admin-menu-item" style="--i:3"><button type="button" class="mi" data-admin-menu-tab="logs"><svg class="ic"><use href="#i-clock"/></svg>Bitácora</button></li>
+          <li style="--i:6" id="sideAdmin" hidden><a class="mi" href="#admin" data-view="admin"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg>Panel administrador</a></li>
+          <li style="--i:7" id="sideHistory" hidden><a class="mi" href="#historial" data-view="historial"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Bitácora</a></li>
+          <li style="--i:8"><a class="mi" href="#contacto" data-view="contacto"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Contacto</a></li>
+          <li style="--i:9" id="sideSettings" hidden><a class="mi" href="#configuracion" data-view="configuracion"><svg class="ic" aria-hidden="true"><use href="#i-gear"/></svg>Configuración</a></li>
+          <li style="--i:14" id="sideLogin"><a class="mi" href="#login" data-view="login"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Iniciar sesión</a></li>
+          <li style="--i:15" id="sideLogout" hidden><button class="mi" type="button"><svg class="ic" aria-hidden="true"><use href="#i-logout"/></svg>Cerrar sesión</button></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <!-- INICIO -->
+      <section class="view active" id="view-home" data-key="home">
+        <div class="banner">
+          <div class="b-text">
+            <h1 class="b-title"><span>KARAOKE</span><span class="gold">TULUM</span></h1>
+            <p class="b-sub">KARAOKE LOUNGE VIP</p>
+            <p class="b-desc">Canta tus canciones favoritas, reserva tu sala privada y vive una experiencia única.</p>
+            <button class="btn-gold" data-reserve=""><svg class="ic"><use href="#i-calendar"/></svg>Reservar sala</button>
+          </div>
+          <div class="b-mic" aria-hidden="false">
+            <svg viewBox="0 0 200 300" role="img" aria-label="Micrófono retro dorado con luz morada" class="mic">
+              <defs>
+                <linearGradient id="gM" x1="0" x2="1"><stop offset="0" stop-color="#6b4a0e"/><stop offset=".35" stop-color="#F5C46B"/><stop offset=".6" stop-color="#D4AF37"/><stop offset="1" stop-color="#4d3207"/></linearGradient>
+                <clipPath id="cH"><rect x="62" y="20" width="76" height="120" rx="38"/></clipPath>
+              </defs>
+              <g transform="rotate(18 100 150)">
+                <rect x="62" y="20" width="76" height="120" rx="38" fill="#1a1024" stroke="url(#gM)" stroke-width="4"/>
+                <g clip-path="url(#cH)" stroke="url(#gM)" stroke-width="3" fill="none"><path d="M60 38h80M60 54h80M60 70h80M60 86h80M60 102h80M60 118h80"/><path d="M100 18v124M80 18v124M120 18v124" stroke-width="2"/></g>
+                <rect x="55" y="138" width="90" height="15" rx="6" fill="url(#gM)"/>
+                <path d="M72 153h56l-10 36H82z" fill="#2a1b3a" stroke="url(#gM)" stroke-width="3"/>
+                <rect x="88" y="189" width="24" height="84" rx="11" fill="#241636" stroke="url(#gM)" stroke-width="3"/>
+              </g>
+            </svg>
+          </div>
+          <div class="stats" id="stats">
+            <div class="stat"><svg class="ic"><use href="#i-sofa"/></svg><b data-stat="rooms"></b><small>Salas VIP</small></div>
+            <div class="stat"><svg class="ic"><use href="#i-music"/></svg><b data-stat="songs"></b><small>Canciones</small></div>
+            <div class="stat"><svg class="ic"><use href="#i-star"/></svg><b data-stat="rating"></b><small>Valoración</small></div>
+          </div>
+        </div>
+        <div class="js-filters"></div>
+        <div class="sec-head"><h2><svg class="ic"><use href="#i-music"/></svg>Artistas destacados</h2><a class="link" data-view="catalogo" data-mode="artistas">Ver todos</a></div>
+        <div class="carousel">
+          <button class="car-btn prev" aria-label="Artistas anteriores"><svg class="ic"><use href="#i-left"/></svg></button>
+          <div class="track" id="homeTrack"></div>
+          <button class="car-btn next" aria-label="Más artistas"><svg class="ic"><use href="#i-right"/></svg></button>
+        </div>
+        <div class="sec-head home-rooms"><h2><svg class="ic"><use href="#i-sofa"/></svg>Salas disponibles</h2><a class="link" data-view="salas">Ver todas</a></div>
+        <div class="rooms home-rooms" id="homeRooms"></div>
+      </section>
+
+      <!-- CATÁLOGO -->
+      <section class="view" id="view-catalogo" data-key="catalogo">
+        <div class="tabs" role="tablist" aria-label="Secciones del catálogo">
+          <button class="tab active" id="catalogArtistsTab" role="tab" aria-selected="true" aria-controls="catBody" data-tab="artistas">Artistas</button>
+          <button class="tab" id="catalogSongsTab" role="tab" aria-selected="false" aria-controls="catBody" data-tab="canciones">Canciones</button>
+          <button class="tab" id="catalogGenresTab" role="tab" aria-selected="false" aria-controls="catBody" data-tab="generos">Géneros musicales</button>
+        </div>
+        <div class="js-filters"></div>
+        <button class="catalog-filter__toggle" id="layerFilterToggle" type="button" aria-expanded="false" aria-controls="layerFilterPanel">
+          <svg class="ic"><use href="#i-filter"/></svg><span>Filtro por 3 capas</span><svg class="ic catalog-filter__chevron"><use href="#i-down"/></svg>
+        </button>
+        <section class="catalog-filter" id="layerFilterPanel" aria-label="Filtro musical de tres capas" hidden>
+          <p class="catalog-filter__description">Filtra el repertorio por categoría, subgénero y artista.</p>
+          <div class="catalog-filter__grid">
+            <label class="catalog-filter__field">1. Categoría
+              <select id="layerCategory"><option value="">Selecciona una categoría</option></select>
+            </label>
+            <label class="catalog-filter__field">2. Subgénero
+              <select id="layerSubcategory" disabled><option value="">Primero elige una categoría</option></select>
+            </label>
+            <label class="catalog-filter__field">3. Artista
+              <select id="layerArtist" disabled><option value="">Primero elige un subgénero</option></select>
+            </label>
+          </div>
+          <ul class="catalog-filter__results" id="layerResults" aria-live="polite"><li>Selecciona las tres capas para ver sus canciones.</li></ul>
+        </section>
+        <div class="cat-body" id="catBody" role="tabpanel" tabindex="0" aria-labelledby="catalogArtistsTab"></div>
+        <div class="pager" id="pager"></div>
+      </section>
+
+      <!-- SALAS -->
+      <section class="view" id="view-salas" data-key="salas">
+        <div class="sec-head"><h2><svg class="ic"><use href="#i-sofa"/></svg>Salas privadas</h2></div>
+        <div class="rooms big" id="roomsAll"></div>
+      </section>
+
+      <!-- RESERVAS -->
+      <section class="view" id="view-reservas" data-key="reservas">
+        <div class="panel">
+          <svg class="ic big"><use href="#i-calendar"/></svg>
+          <h2>Reserva tu sala</h2>
+          <p>Elige sala, fecha y hora. Verás el precio estimado antes de continuar.</p>
+          <button class="btn-gold" data-reserve=""><svg class="ic"><use href="#i-calendar"/></svg>Nueva reserva</button>
+          <ul class="plist" id="resList"></ul>
+        </div>
+      </section>
+
+      <!-- PROMOCIONES -->
+      <section class="view" id="view-promociones" data-key="promociones">
+        <div class="promo-intro">
+          <span class="promo-intro__eyebrow">KARAOKE TULUM · OFERTAS ESPECIALES</span>
+          <div class="sec-head"><div><h2><svg class="ic"><use href="#i-tag"/></svg>Promociones</h2><p>Momentos para compartir, cantar y celebrar en nuestras salas.</p></div><span class="tag">Experiencias VIP</span></div>
+        </div>
+        <div class="offer-grid">
+          <article class="offer-card"><div class="offer-card__visual"><img src="js/assets/promociones/noche-grupo.jpg" alt="Amigos cantando en una sala de karaoke VIP" width="1280" height="721" loading="lazy" decoding="async"><span class="offer-card__badge">PARA GRUPOS</span></div><div class="offer-card__body"><span class="offer-card__kicker">CANTA EN EQUIPO</span><h3>Noche de grupo</h3><p>Reserva la Sala Party para 12 personas o más y suma una hora extra.</p><button class="btn-gold sm" data-reserve="party">Reservar Sala Party</button></div></article>
+          <article class="offer-card"><div class="offer-card__visual"><img src="js/assets/promociones/cumpleanos-vip.jpg" alt="Celebración de cumpleaños en una sala privada de karaoke" width="1280" height="721" loading="lazy" decoding="async"><span class="offer-card__badge">CELEBRACIONES</span></div><div class="offer-card__body"><span class="offer-card__kicker">UN DÍA ESPECIAL</span><h3>Cumpleaños VIP</h3><p>Celebra en la Sala VIP con decoración de bienvenida para el cumpleañero.</p><button class="btn-gold sm" data-reserve="vip">Reservar Sala VIP</button></div></article>
+          <article class="offer-card"><div class="offer-card__visual"><img src="js/assets/promociones/entre-semana.jpg" alt="Dueto disfrutando una noche tranquila de karaoke" width="1280" height="721" loading="lazy" decoding="async"><span class="offer-card__badge">LUNES A JUEVES</span></div><div class="offer-card__body"><span class="offer-card__kicker">PLAN DE SEMANA</span><h3>Entre semana</h3><p>Tarifa especial en la Sala Premium de lunes a jueves antes de las 18:00.</p><button class="btn-gold sm" data-reserve="premium">Reservar Sala Premium</button></div></article>
+        </div>
+      </section>
+
+      <!-- ACCESO -->
+      <section class="view" id="view-login" data-key="login">
+        <div class="auth-wrap">
+          <div class="auth-card">
+            <div class="auth-head">
+              <span class="avatar xl"><svg class="ic"><use href="#i-lock"/></svg></span>
+              <h2>Tu cuenta Karaoke Tulum</h2>
+              <p>Ingresa para guardar tus reservas, ver tu perfil y consultar tu historial.</p>
+            </div>
+            <div class="auth-tabs" role="tablist" aria-label="Acceso a la cuenta">
+              <button class="auth-tab active" id="loginTab" role="tab" aria-selected="true" aria-controls="pane-login" data-auth-tab="login">Iniciar sesión</button>
+              <button class="auth-tab" id="registerTab" role="tab" aria-selected="false" aria-controls="pane-register" data-auth-tab="register">Crear cuenta</button>
+            </div>
+            <div class="auth-pane active" id="pane-login" role="tabpanel" aria-labelledby="loginTab" tabindex="0">
+              <div class="role-choice"><span>Tipo de acceso</span><label><input type="radio" name="loginRole" value="user" checked> Usuario</label><label><input type="radio" name="loginRole" value="admin"> Administrador</label></div>
+              <form id="loginForm" novalidate>
+                <label class="auth-field">Correo electrónico<input id="loginMail" type="email" autocomplete="username" placeholder="correo@ejemplo.com"><span class="err" data-auth-err="mail"></span></label>
+                <label class="auth-field">Contraseña<input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••"><span class="err" data-auth-err="pass"></span></label>
+                <button type="submit" class="btn-gold auth-submit"><svg class="ic"><use href="#i-lock"/></svg>Ingresar</button>
+              </form>
+              <p class="auth-hint">Usuario demo: <b>demo@tulum.com</b> / <b>demo1234</b><br>Administrador demo: <b>admin@tulum.com</b> / <b>admin1234</b></p>
+            </div>
+            <div class="auth-pane" id="pane-register" role="tabpanel" aria-labelledby="registerTab" tabindex="0">
+              <form id="registerForm" novalidate>
+                <label class="auth-field">Nombre completo<input id="regName" type="text" autocomplete="name" placeholder="Ej. Ana Pérez"><span class="err" data-auth-err="name"></span></label>
+                <label class="auth-field">Correo electrónico<input id="regMail" type="email" autocomplete="username" placeholder="correo@ejemplo.com"><span class="err" data-auth-err="mail"></span></label>
+                <label class="auth-field">Contraseña (mínimo 6 caracteres)<input id="regPass" type="password" autocomplete="new-password" placeholder="••••••••"><span class="err" data-auth-err="pass"></span></label>
+                <label class="auth-field">Confirmar contraseña<input id="regPass2" type="password" autocomplete="new-password" placeholder="••••••••"><span class="err" data-auth-err="confirm"></span></label>
+                <button type="submit" class="btn-gold auth-submit"><svg class="ic"><use href="#i-user"/></svg>Crear cuenta</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL -->
+      <section class="view" id="view-perfil" data-key="perfil">
+        <div id="profileBody"></div>
+      </section>
+
+      <!-- MIS RESERVAS -->
+      <section class="view" id="view-mis-reservas" data-key="mis-reservas">
+        <div class="sec-head"><h2><svg class="ic"><use href="#i-calendar"/></svg>Mis reservas</h2><button class="btn-gold sm" data-reserve="">Nueva reserva</button></div>
+        <div class="reservation-list" id="myReservations"></div>
+      </section>
+
+      <section class="view admin-view" id="view-admin" data-key="admin">
+        <div class="sec-head admin-heading"><div><span class="admin-eyebrow">KARAOKE TULUM · CONTROL DEL SISTEMA</span><h2><svg class="ic"><use href="#i-gear"/></svg>Panel administrador</h2><p class="muted">Gestiona reservas, repertorio, usuarios y actividad desde un solo lugar.</p></div><button class="btn-ghost sm" id="adminLogout"><svg class="ic"><use href="#i-logout"/></svg>Cerrar sesión</button></div>
+        <div class="admin-stats" id="adminStats"></div>
+        <div class="admin-tabs" role="tablist" aria-label="Secciones de administración">
+          <button class="admin-tab active" id="adminTabBookings" role="tab" aria-selected="true" aria-controls="adminBookings" data-admin-tab="bookings">Reservas</button>
+          <button class="admin-tab" id="adminTabMusic" role="tab" aria-selected="false" aria-controls="adminMusic" data-admin-tab="music">Música</button>
+          <button class="admin-tab" id="adminTabUsers" role="tab" aria-selected="false" aria-controls="adminUsers" data-admin-tab="users">Usuarios</button>
+          <button class="admin-tab" id="adminTabLogs" role="tab" aria-selected="false" aria-controls="adminLogs" data-admin-tab="logs">Bitácora</button>
+        </div>
+        <section class="admin-panel" id="adminBookings" role="tabpanel" aria-labelledby="adminTabBookings" tabindex="0">
+          <div class="admin-toolbar"><div><h3>Reservas</h3><p>Crear, editar o eliminar reservas de clientes.</p></div><button class="btn-gold sm" id="newAdminReservation">＋ Nueva reserva</button></div>
+          <form class="admin-form" id="adminReservationForm" hidden>
+            <input type="hidden" id="adminReservationId">
+            <label>Cliente<input id="adminResName" required minlength="3"></label><label>Correo<input id="adminResEmail" type="email" required></label>
+            <label>Teléfono<input id="adminResPhone" inputmode="numeric" maxlength="8" required></label><label>Sala<select id="adminResRoom" required></select></label>
+            <label>Fecha<input id="adminResDate" type="date" required></label><label>Hora<input id="adminResTime" type="time" required></label>
+            <label>Personas<input id="adminResPeople" type="number" min="1" required></label><label>Duración (horas)<input id="adminResDuration" type="number" min="1" max="5" value="1" required></label>
+            <div class="admin-form__actions"><button class="btn-gold sm" type="submit">Guardar reserva</button><button class="btn-ghost sm" type="button" id="cancelAdminReservation">Cancelar</button></div>
+          </form>
+          <div id="adminBookingTable"></div>
+        </section>
+        <section class="admin-panel" id="adminMusic" role="tabpanel" aria-labelledby="adminTabMusic" tabindex="0" hidden>
+          <div class="admin-toolbar"><div><h3>Repertorio musical</h3><p>Administra las canciones que aparecen en el catálogo.</p></div></div>
+          <form class="admin-form" id="adminMusicForm">
+            <input type="hidden" id="adminMusicIndex" value="">
+            <label>Canción<input id="adminMusicTitle" required maxlength="100"></label><label>Artista<input id="adminMusicArtist" required maxlength="80"></label>
+            <label>Categorías (puedes elegir varias)<select id="adminMusicCategory" multiple size="3" required></select></label><label>Subgéneros<input id="adminMusicSubs" placeholder="Pop latino, Románticas"></label>
+            <label class="admin-form__wide">Enlace de miniatura (opcional)<input id="adminMusicThumbnail" type="url" placeholder="https://..."></label>
+            <div class="admin-form__actions"><button class="btn-gold sm" type="submit" id="adminMusicSave">Agregar canción</button><button class="btn-ghost sm" type="button" id="cancelAdminMusicEdit" hidden>Cancelar edición</button></div>
+          </form>
+          <label class="admin-search">Buscar en el repertorio<input type="search" id="adminMusicSearch" placeholder="Canción o artista…"></label>
+          <div id="adminMusicTable"></div>
+        </section>
+        <section class="admin-panel" id="adminUsers" role="tabpanel" aria-labelledby="adminTabUsers" tabindex="0" hidden>
+          <div class="admin-toolbar"><div><h3>Usuarios</h3><p>Crea cuentas, cambia datos o elimina usuarios.</p></div></div>
+          <form class="admin-form" id="adminUserForm">
+            <input type="hidden" id="adminUserId" value="">
+            <label>Nombre<input id="adminUserName" required minlength="3"></label><label>Correo<input id="adminUserEmail" type="email" required></label>
+            <label>Rol<select id="adminUserRole"><option value="user">Usuario</option><option value="admin">Administrador</option></select></label>
+            <label>Contraseña <small>(vacía para conservar la actual)</small><input id="adminUserPassword" type="password" minlength="6" autocomplete="new-password"></label>
+            <div class="admin-form__actions"><button class="btn-gold sm" type="submit" id="adminUserSave">Crear usuario</button><button class="btn-ghost sm" type="button" id="cancelAdminUserEdit" hidden>Cancelar edición</button></div>
+          </form>
+          <div id="adminUserTable"></div>
+        </section>
+        <section class="admin-panel" id="adminLogs" role="tabpanel" aria-labelledby="adminTabLogs" tabindex="0" hidden>
+          <div class="admin-toolbar"><div><h3>Bitácora del sistema</h3><p>Registro automático de inicios de sesión, reservas y cambios administrativos.</p></div></div>
+          <div id="adminLogTable"></div>
+        </section>
+      </section>
+
+      <!-- EXTRA (Historial, Contacto, Configuración) -->
+      <section class="view" id="view-extra" data-key="extra">
+        <div class="panel">
+          <h2 id="extraTitle"></h2>
+          <p id="extraText"></p>
+          <div id="personalLogs" class="personal-logs" hidden></div>
+          <div id="contactHero" class="contact-hero" hidden></div>
+          <div id="contactDetails" class="contact-panel__details" hidden></div>
+          <div id="contactRooms" class="contact-rooms" hidden></div>
+          <button class="btn-gold" data-reserve=""><svg class="ic"><use href="#i-calendar"/></svg>Reservar sala</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bnav" aria-label="Navegación inferior">
+    <button class="bn" data-view="home"><svg class="ic"><use href="#i-home"/></svg><span>Inicio</span></button>
+    <button class="bn" data-view="catalogo"><svg class="ic"><use href="#i-music"/></svg><span>Catálogo</span></button>
+    <button class="bn" data-view="reservas"><svg class="ic"><use href="#i-calendar"/></svg><span>Reservas</span></button>
+    <button class="bn" data-view="salas"><svg class="ic"><use href="#i-sofa"/></svg><span>Salas</span></button>
+    <button class="bn" id="bnAccount" data-view="perfil"><svg class="ic"><use href="#i-user"/></svg><span>Ingresar</span></button>
+  </nav>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- Modal artista -->
+<div class="modal" id="artistModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="aName">
+  <div class="dialog">
+    <button class="close" type="button" aria-label="Cerrar"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <div class="pic" id="aPic"></div>
+    <h2 id="aName"></h2>
+    <p class="genre" id="aGenre"></p>
+    <p id="aDesc"></p>
+  </div>
+</div>
+
+<!-- Modal reservas -->
+<div class="modal" id="reserveModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rTitle">
+  <div class="dialog wide">
+    <button class="close" type="button" aria-label="Cerrar"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <h2 id="rTitle">Reservar sala</h2>
+    <form id="reserveForm" novalidate>
+      <div class="grid">
+        <label class="f full">Nombre completo<input id="fName" type="text" autocomplete="name" placeholder="Ej. Ana Pérez"><span class="err" data-err="name"></span></label>
+        <label class="f">Teléfono (8 dígitos)<input id="fPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="70000000"><span class="err" data-err="phone"></span></label>
+        <label class="f">Correo electrónico<input id="fMail" type="email" autocomplete="email" placeholder="correo@ejemplo.com"><span class="err" data-err="mail"></span></label>
+        <label class="f full">Sala<select id="fRoom"></select></label>
+        <label class="f">Fecha<input id="fDate" type="date"><span class="err" data-err="date"></span></label>
+        <label class="f">Hora de inicio<select id="fTime"></select><span class="hint">Puedes reservar desde las 12:00 hasta las 23:00.</span></label>
+        <label class="f">Cantidad de personas<input id="fPeople" type="number" min="1" value="6"><span class="hint" id="peopleHint"></span><span class="err" data-err="people"></span></label>
+        <label class="f">Duración<select id="fDur"></select></label>
+      </div>
+      <div class="estimate"><span>Precio estimado</span><b id="fPrice">0 Bs</b></div>
+      <div class="actions">
+        <button type="button" class="btn-ghost" data-close>Cancelar</button>
+        <button type="submit" class="btn-gold">Continuar</button>
+      </div>
+    </form>
+    <div class="reserve-confirm" id="reserveConfirm" hidden>
+      <p>Revisa los datos. Tienes este tiempo para confirmar la reserva:</p>
+      <div class="flash-timer" role="status" aria-live="polite"><span>Tarifa Flash disponible por</span><strong id="reserveCountdown">00:30</strong></div>
+      <dl class="confirm-summary">
+        <div><dt>Cliente</dt><dd id="confirmName"></dd></div>
+        <div><dt>Sala</dt><dd id="confirmRoom"></dd></div>
+        <div><dt>Fecha y hora</dt><dd id="confirmDateTime"></dd></div>
+        <div><dt>Personas</dt><dd id="confirmPeople"></dd></div>
+        <div><dt>Duración</dt><dd id="confirmDuration"></dd></div>
+        <div><dt>Total</dt><dd id="confirmPrice"></dd></div>
+      </dl>
+      <div class="actions confirm-actions">
+        <button type="button" class="btn-ghost" id="cancelPendingReservation">Cancelar</button>
+        <button type="button" class="btn-ghost" id="editPendingReservation">Editar</button>
+        <button type="button" class="btn-gold" id="confirmReservation">Confirmar reserva</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- PUNTO 4 · DEPENDENCIAS: jQuery se usa en los módulos de interfaz; Supabase JS en auth y datos. -->
+<!-- El sitio carga scripts directos y no tiene bundler; por eso no aplica tree shaking automático. -->
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.17/dist/purify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- DOMPURIFY: intercepta los puntos de inserción .html() de la aplicación y limpia su markup. -->
+<script src="js/security.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/supabase-data.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script src="js/reservas.js"></script>
+<script src="js/admin.js"></script>
+<!-- ACCESIBILIDAD: conecta el control de simulación, su estado ARIA y la clase CSS. -->
+<script src="js/accessibility.js"></script>
+<!-- SMOKE TEST: conecta el botón de auditoría rápida del DOM. -->
+<script src="js/smoke-test.js"></script>
+<!-- AUDITORÍA HTML5: módulo independiente para el diagnóstico semántico sin recarga (simulación didáctica de actualización en vivo). -->
+<script src="js/a11y-audit.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>
+
+
+
+

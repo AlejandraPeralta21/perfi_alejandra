@@ -1,0 +1,124 @@
+/* Acceso, perfil y reservas guardadas. Usa las variables de themes.css */
+
+/* Acceso */
+.auth-wrap{width:min(100%,520px);margin:auto;display:flex}
+.auth-card{width:100%;padding:26px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.auth-head{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.auth-head .avatar.xl{background:rgba(212,175,55,.12)}
+.auth-head h2{font:600 22px Montserrat,sans-serif}
+.auth-head p{color:var(--muted);font-size:13.5px;line-height:1.5;max-width:36ch}
+.auth-tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+.auth-tab{flex:1;padding:9px 10px;font:500 13.5px Poppins,sans-serif;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .3s,border-color .3s}
+.auth-tab.active{color:var(--gold-t);border-color:var(--gold)}
+.auth-pane{display:none}
+.auth-pane.active{display:block;animation:viewIn .3s both}
+.auth-field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;font-size:12px;color:var(--muted)}
+.auth-field input{height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--card2);color:var(--text);font:14px Poppins,sans-serif;width:100%;min-width:0}
+.auth-field input:focus{outline:2px solid var(--gold);outline-offset:0}
+.auth-submit{width:100%;margin-top:4px}
+.auth-hint{margin-top:12px;padding:10px 12px;border:1px dashed var(--line);border-radius:10px;background:var(--card2);color:var(--muted);font-size:11.5px;line-height:1.6;text-align:center}
+.auth-hint b{color:var(--gold-t);font-weight:600}
+.role-choice{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card2);font-size:12px;color:var(--muted)}
+.role-choice>span{width:100%;font-weight:600;color:var(--text)}
+.role-choice label{display:flex;align-items:center;gap:6px;cursor:pointer}.role-choice input{accent-color:var(--gold)}
+.auth-empty{display:flex;flex-direction:column;align-items:center;gap:10px;padding:28px 18px;text-align:center;border:1px dashed var(--line);border-radius:14px;background:var(--card)}
+.auth-empty .ic{width:34px;height:34px;color:var(--gold)}
+.auth-empty h3{font:600 17px Montserrat,sans-serif}
+.auth-empty p{color:var(--muted);font-size:13px;line-height:1.5;max-width:40ch}
+.auth-empty .btn-gold{display:inline-flex}
+
+/* Identificación visible en el encabezado */
+.user-chip{display:inline-flex;align-items:center;max-width:160px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--gold-t);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-chip[hidden]{display:none}
+
+/* Perfil */
+#profileBody{width:min(100%,520px);margin:auto}
+.profile-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow);text-align:center;min-width:0}
+.profile-avatar{background:rgba(212,175,55,.12)}
+.profile-card h3{font:600 21px Montserrat,sans-serif;overflow-wrap:anywhere}
+.profile-mail{color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.profile-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-top:6px}
+.profile-stats>div{display:flex;flex-direction:column;gap:4px;padding:12px 8px;border:1px solid var(--line);border-radius:12px;background:var(--card2)}
+.profile-stats b{font:600 16px Montserrat,sans-serif;color:var(--gold-t);overflow-wrap:anywhere}
+.profile-stats small{font-size:11px;color:var(--muted)}
+.profile-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px;width:100%}
+.profile-actions>button{flex:1 1 150px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+
+/* Mis reservas */
+.reservation-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.reservation-card{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);min-width:0;animation:cardIn .4s backwards}
+.reservation-card__header{display:flex;align-items:center;gap:8px}
+.reservation-card__header .ic{color:var(--gold)}
+.reservation-card__title{font:600 16px Montserrat,sans-serif;flex:1;min-width:0}
+.reservation-card__price{font:600 15px Montserrat,sans-serif;color:var(--gold-t);white-space:nowrap}
+.reservation-card__details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px;color:var(--muted);font-size:12.5px}
+.reservation-card__details span{display:flex;align-items:center;gap:6px;min-width:0}
+.reservation-card__details .ic{width:14px;height:14px;color:var(--gold-t)}
+.reservation-card__cancel{align-self:flex-start;margin-top:4px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:12px;transition:color .3s,border-color .3s}
+.reservation-card__cancel:hover{color:#ff7070;border-color:#ff7070}
+.reservation-list__empty{grid-column:1/-1}
+
+/* Panel administrativo */
+.admin-view{gap:14px}
+.admin-heading{padding-bottom:10px;border-bottom:1px solid var(--line)}
+.admin-heading h2{margin-top:4px}
+.admin-heading .muted{margin-top:4px}
+.admin-eyebrow{color:var(--gold-t);font-size:9px;font-weight:600;letter-spacing:.2em}
+.admin-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.admin-stats article{display:flex;flex-direction:column;gap:5px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.admin-stats b{font:600 20px Montserrat,sans-serif;color:var(--gold-t)}.admin-stats span,.muted{font-size:12px;color:var(--muted)}
+.admin-tabs{display:flex;gap:8px;border-bottom:1px solid var(--line)}
+.admin-tab{min-height:44px;padding:10px 14px;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap}.admin-tab.active{color:var(--gold-t);border-color:var(--gold)}
+.admin-panel{min-width:0}.admin-panel h3{font:600 16px Montserrat,sans-serif;margin:12px 0}
+.admin-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.admin-toolbar h3{margin:0 0 4px}
+.admin-toolbar p{font-size:12px;color:var(--muted)}
+.admin-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 18px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.admin-form label{display:flex;flex-direction:column;gap:6px;min-width:0;color:var(--gold-t);font-size:11px;font-weight:500}
+.admin-form label small{color:var(--muted);font-size:10px;font-weight:400}
+.admin-form input,.admin-form select{width:100%;min-width:0;min-height:44px;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--bg2);color:var(--text);font:13px Poppins,sans-serif}
+.admin-form input:focus,.admin-form select:focus{border-color:var(--gold);outline:2px solid rgba(212,175,55,.18)}
+.admin-form__wide,.admin-form__actions{grid-column:1/-1}
+.admin-form__actions{display:flex;gap:8px;flex-wrap:wrap}
+.admin-search{display:flex;align-items:center;gap:12px;max-width:420px;margin:10px 0;color:var(--muted);font-size:12px}
+.admin-search input{flex:1;min-width:0;min-height:42px;padding:8px 11px;border:1px solid var(--line);border-radius:9px;background:var(--bg2);color:var(--text)}
+.admin-table-wrap{width:100%;overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.admin-table-wrap--tall{max-height:55dvh;overflow:auto}
+.admin-table{width:100%;border-collapse:collapse;text-align:left;font-size:12px;min-width:680px}
+.admin-table th,.admin-table td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}.admin-table th{color:var(--gold-t);font-weight:600;background:var(--card2)}
+.admin-table td small{display:block;color:var(--muted);margin-top:3px}.admin-table tr:last-child td{border-bottom:0}.admin-empty{padding:20px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center}
+.admin-actions{display:flex;gap:6px;align-items:center;white-space:nowrap}
+.admin-row-edit,.admin-row-delete{min-height:34px;padding:5px 9px;border:1px solid var(--line);border-radius:8px;color:var(--gold-t);font-size:11px}
+.admin-row-delete{color:#f18c82}
+.admin-row-edit:hover,.admin-row-delete:hover{border-color:currentColor;background:var(--card2)}
+.admin-view .log-heading{display:flex;align-items:center;justify-content:space-between;margin-top:22px}.log-heading small{font:400 11px Poppins,sans-serif;color:var(--muted)}
+.personal-logs{display:grid;gap:8px;margin-top:16px;text-align:left;width:100%}.personal-log{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card2);font-size:12px}.personal-log span{color:var(--muted)}.personal-log small{color:var(--muted);grid-column:1/-1}
+
+/* auth.css se carga después de responsive.css: ocultar aquí el chip en pantallas pequeñas */
+@media (max-width:1023px){.user-chip{display:none}}
+
+@media (max-width:767px){
+  .auth-wrap,#profileBody{width:100%}
+  .auth-card,.profile-card{padding:20px 16px}
+  .auth-head h2{font-size:20px}
+  .reservation-list{grid-template-columns:1fr}
+  .profile-actions>button{flex:1 1 100%}
+  .admin-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .admin-stats article{padding:12px}
+  .admin-heading{align-items:flex-start}
+  .admin-heading h2{font-size:18px}
+  .admin-heading .btn-ghost{flex:none;min-height:44px;padding:0 10px}
+  .admin-tabs{overflow-x:auto;scrollbar-width:none}
+  .admin-tab{padding-inline:10px;font-size:12px}
+  .admin-toolbar{align-items:flex-start}
+  .admin-toolbar .btn-gold{flex:none;min-height:44px;padding-inline:10px}
+  .admin-form{grid-template-columns:minmax(0,1fr);padding:12px}
+  .admin-form__wide,.admin-form__actions{grid-column:auto}
+  .admin-form__actions>*{min-height:44px}
+  .admin-search{align-items:stretch;flex-direction:column}
+  .admin-row-edit,.admin-row-delete{min-height:40px}
+}
+@media (max-width:380px){
+  .auth-tab{font-size:12px;padding:9px 6px}
+  .profile-stats{grid-template-columns:1fr}
+}

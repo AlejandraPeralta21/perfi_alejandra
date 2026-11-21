@@ -1,0 +1,25 @@
+@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(.88)}75%{transform:scale(1.08)}100%{transform:scale(1)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(245,196,107,0)}50%{box-shadow:0 0 22px rgba(245,196,107,.5)}}
+.view.active{animation:viewIn .35s both}
+.artist-card,.songs__item,.gtile,.room{animation:cardIn .4s backwards;animation-delay:calc(var(--i,0)*45ms)}
+.bn.pop .ic{animation:pop .35s}
+.banner .btn-gold{animation:glow 3.2s ease-in-out 1.2s 2}
+/* Transición suave al cambiar de tema */
+html.theme-switching body *,html.theme-switching body *::before,html.theme-switching body *::after{transition:background-color .4s,color .4s,border-color .4s,box-shadow .4s}
+@media (prefers-reduced-motion:reduce){
+  html body .view.active,html body .auth-pane.active,html body .reservation-card,
+  html body .artist-card,html body .songs__item,html body .gtile,html body .room,
+  html body .bn.pop .ic,html body .banner .btn-gold{animation:none}
+  html body .hamburger-lines i,html body .auth-tab,html body .reservation-card__cancel,
+  html body .burger span,html body .topnav a,html body .switch .ic,html body .switch .knob,
+  html body .avatar,html body .side,html body .menu>li,html body .mi,html body .mi .chev,
+  html body .sub,html body .btn-gold,html body .btn-ghost,html body .chip,html body .fbtn,
+  html body .subs,html body .sub-chip,html body .artist-card,html body .artist-card__image img,html body .artist-card__zoom,
+  html body .car-btn,html body .tab,html body .layer-chevron,html body .gtile,
+  html body .catalog-filter__chevron,html body .catalog-filter__toggle,
+  html body .pager button,html body .bn,html body .overlay,html body .toast,
+  html body .modal,html body .dialog,html body .close{transition-duration:.01ms}
+  html{scroll-behavior:auto}
+}

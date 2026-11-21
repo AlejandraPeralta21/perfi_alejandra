@@ -1,0 +1,18 @@
+/* Variables de color. Cambia el tema con html[data-theme] */
+:root{
+  --gold:#D4AF37; --champ:#E8C888; --gold-b:#F5C46B;
+  --bg:#090909; --bg2:#121212; --card:#171717; --card2:#1f1f1f;
+  --text:#FFFFFF; --muted:#A6A6A6; --line:rgba(212,175,55,.38);
+  --gold-t:#E8C888; --on-gold:#090909; --overlay:rgba(0,0,0,.62);
+  --focus-ring:#5eead4;
+  --shadow:0 10px 26px rgba(0,0,0,.45); --hh:64px;
+  color-scheme:dark;
+}
+html[data-theme="light"]{
+  --bg:#FBF7EE; --bg2:#F4EEDF; --card:#FFFFFF; --card2:#FAF5E8;
+  --text:#16120A; --muted:#6B6455; --line:rgba(160,120,10,.45);
+  --gold-t:#8A6A0C; --overlay:rgba(30,22,5,.45);
+  --focus-ring:#0f766e;
+  --shadow:0 8px 22px rgba(90,65,10,.14);
+  color-scheme:light;
+}

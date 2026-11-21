@@ -1,0 +1,155 @@
+/* ACCESIBILIDAD: contraste reforzado para la demostración solicitada en la guía. */
+body.alto-contraste{
+  --bg:#000000;
+  --bg2:#050505;
+  --card:#000000;
+  --card2:#101010;
+  --text:#ffffff;
+  --muted:#ffffff;
+  --line:#ffff00;
+  --gold:#ffff00;
+  --gold-t:#ffff00;
+  --gold-b:#00ffff;
+  --champ:#ffffff;
+  --on-gold:#000000;
+  --overlay:rgba(0,0,0,.88);
+  --shadow:none;
+  --focus-ring:#00ffff;
+  color-scheme:dark;
+  background:#000000;
+  color:#ffffff;
+}
+
+/* El amarillo puro en títulos y bordes hace evidente el modo frente al tema normal. */
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste .sec-head,
+body.alto-contraste .admin-eyebrow,
+body.alto-contraste .link{
+  color:#ffff00;
+}
+
+body.alto-contraste .artist-card,
+body.alto-contraste .songs__item,
+body.alto-contraste .room,
+body.alto-contraste .offer-card,
+body.alto-contraste .panel,
+body.alto-contraste .catalog-filter,
+body.alto-contraste .contact-card,
+body.alto-contraste .reservation-card,
+body.alto-contraste .admin-panel,
+body.alto-contraste .auth-card{
+  border:3px solid #ffff00;
+  background-color:#000000;
+  box-shadow:none;
+}
+
+body.alto-contraste #btnSimularContraste[aria-pressed="true"]{
+  background:#ffff00;
+  color:#000000;
+  box-shadow:0 0 0 2px #00ffff;
+}
+
+body.alto-contraste .mi,
+body.alto-contraste .tab,
+body.alto-contraste .admin-tab,
+body.alto-contraste .auth-tab,
+body.alto-contraste .bn{
+  color:#ffffff;
+}
+
+body.alto-contraste .mi.active,
+body.alto-contraste .tab.active,
+body.alto-contraste .admin-tab.active,
+body.alto-contraste .auth-tab.active,
+body.alto-contraste .bn.active{
+  background:#ffff00;
+  color:#000000;
+}
+
+/* HOVER ALTO CONTRASTE: el cian señala claramente el elemento bajo el cursor. */
+body.alto-contraste button:hover,
+body.alto-contraste a:hover{
+  background:#00ffff;
+  color:#000000;
+  outline:2px solid #ffffff;
+  outline-offset:1px;
+}
+
+body.alto-contraste .artist-card:hover,
+body.alto-contraste .songs__item:hover,
+body.alto-contraste .room:hover,
+body.alto-contraste .offer-card:hover,
+body.alto-contraste .contact-card:hover{
+  border-color:#00ffff;
+  box-shadow:0 0 0 2px #00ffff;
+}
+
+/* El enlace activo del menú superior queda resaltado incluso sin pasar el cursor. */
+body.alto-contraste .topnav{
+  padding:3px;
+  border:2px solid #ffff00;
+  border-radius:12px;
+  background:#002b55;
+}
+
+body.alto-contraste .topnav a{
+  color:#ffffff;
+}
+
+body.alto-contraste .topnav a.active{
+  background:#ffff00;
+  color:#000000;
+  border-color:#00ffff;
+  box-shadow:inset 0 -3px 0 #00ffff;
+}
+
+body.alto-contraste .artist-card__genre,
+body.alto-contraste .tag,
+body.alto-contraste .muted,
+body.alto-contraste .hint,
+body.alto-contraste .network-status,
+body.alto-contraste .contact-card__value{
+  color:#ffffff;
+}
+
+body.alto-contraste .artist-card::after{
+  background:linear-gradient(to top,rgba(0,0,0,.96),rgba(0,0,0,.12) 72%);
+}
+
+body.alto-contraste input,
+body.alto-contraste select,
+body.alto-contraste textarea{
+  border:2px solid #ffff00;
+  background-color:#000000;
+  color:#ffffff;
+}
+
+body.alto-contraste input::placeholder,
+body.alto-contraste textarea::placeholder{
+  color:#e2e8f0;
+  opacity:1;
+}
+
+/* El anillo cian se distingue claramente en ambos temas y al activar alto contraste. */
+body.alto-contraste :focus-visible{
+  outline:3px solid #00ffff;
+  outline-offset:3px;
+}
+
+/* SMOKE TEST: el resultado permanece breve y visible dentro del menú lateral. */
+.panel-auditoria p{
+  margin:0 12px 8px 44px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.45;
+}
+
+/* El botón del módulo de auditoría queda distinguido dentro del menú. */
+.panel-auditoria #btnAuditarA11Y{
+  color:var(--gold-t);
+  border:1px solid var(--line);
+  white-space:normal;
+  text-align:left;
+}

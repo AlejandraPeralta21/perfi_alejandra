@@ -1,0 +1,271 @@
+/* Diseño adaptable. Base en styles.css; aquí solo se ajustan los puntos de ruptura:
+   escritorio (≥1280) · laptop (1024-1279) · tablet (768-1023) · celular (≤767). */
+
+/* El inicio muestra banner + carrusel; las salas se consultan en su propia vista. */
+#view-home{overflow-y:hidden}
+#view-home .home-rooms,#view-home .js-filters{display:none}
+#view-home.active{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);gap:12px;min-height:0;overflow:hidden}
+#view-home.active>.carousel{min-height:0;height:100%}
+#view-home .carousel{--h:clamp(120px,22dvh,200px)}
+#view-home .track{min-height:0}
+
+/* ===== Escritorio ===== */
+@media (min-width:1280px){
+  .banner{height:clamp(210px,30dvh,300px)}
+  .carousel{--h:clamp(170px,24dvh,260px)}
+  #view-home .track{grid-template-columns:repeat(6,minmax(0,1fr))}
+  #view-home .car-btn{display:none}
+  .side{width:280px}
+  .side-in{width:258px}
+}
+
+/* ===== Laptop ===== */
+@media (min-width:1024px) and (max-width:1279px){
+  .banner{height:clamp(180px,26dvh,230px)}
+  .carousel{--h:clamp(145px,20dvh,180px)}
+  .search{width:190px}
+  .topnav a{padding:8px 9px}
+}
+@media (min-width:1024px) and (max-width:1180px){
+  .topnav a span{display:none}
+  .topnav a{padding:8px 12px}
+  .rooms{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* En laptop, la lista de canciones crece para llenar el alto disponible. */
+@media (min-width:1024px) and (max-width:1599px){
+  #view-catalogo .agrid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+  #view-catalogo.laptop-songs{overflow-y:hidden}
+  #view-catalogo.laptop-songs #catBody{flex:1 1 auto;min-height:0;display:flex}
+  #view-catalogo.laptop-songs .songs{width:100%;flex:1;grid-auto-rows:minmax(72px,auto);align-content:start}
+  #view-catalogo.laptop-songs-full .songs{grid-auto-rows:minmax(72px,1fr);align-content:stretch}
+}
+
+/* Cuadrícula de artistas del inicio en pantallas grandes */
+@media (min-width:768px){
+  #view-home .track{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(150px,1fr));
+    grid-auto-rows:var(--h);
+    align-content:start;
+    gap:12px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:8px 6px 10px;
+    margin:0;
+  }
+  #view-home .artist-card{width:100%;min-width:0;height:var(--h)}
+}
+
+/* ===== Tablet: menú lateral desplegable ===== */
+@media (max-width:1023px){
+  :root{--hh:60px}
+  .top{justify-content:flex-start;padding:0 14px;gap:10px}
+  .brand{position:absolute;left:50%;transform:translateX(-50%);margin:0}
+  .topnav{display:none}
+  .top-actions{margin-left:auto}
+  .network-status{width:12px;height:12px;padding:0;border:0;background:transparent;overflow:hidden}
+  .network-status span{display:none}
+  .side,body:not(.menu-open) .side{position:fixed;top:var(--hh);bottom:0;left:0;z-index:50;width:min(300px,84vw);margin:0;padding:14px 10px;border-width:1px;border-radius:0 16px 16px 0;opacity:1;transform:translateX(-105%)}
+  body.menu-open .side{transform:none}
+  .side-in{width:100%}
+  body.menu-open .overlay{opacity:1;visibility:visible}
+  .main{padding:10px}
+  .bnav{display:grid;width:100%;min-height:60px;grid-template-columns:repeat(5,minmax(0,1fr))}
+  .bn{min-width:0}
+}
+
+/* ===== Celular ===== */
+@media (max-width:767px){
+  .app{grid-template-rows:auto minmax(0,1fr) auto}
+  .bn span{font-size:10px}
+  .toast{bottom:calc(72px + env(safe-area-inset-bottom))}
+  .main{padding:8px 10px}
+  .view{gap:12px;padding-bottom:8px}
+
+  /* Encabezado: menú | marca | tema + cuenta */
+  .brand{left:46%}
+  .brand-txt b{font-size:15px}
+  .brand-txt small{font-size:6.5px;letter-spacing:.25em}
+  .logo{--d:38px}
+
+  /* Banner */
+  .banner{grid-template-columns:minmax(0,1fr) 32%;height:auto;min-height:0;padding:16px 13px 12px;gap:8px 2px}
+  .b-title{font-size:clamp(30px,9vw,42px)}
+  .b-sub{font-size:9px;letter-spacing:.2em}
+  .b-desc{font-size:12px;max-width:29ch;margin-bottom:10px}
+  .b-text .btn-gold{padding:9px 12px;font-size:12px}
+  .b-mic{grid-column:2;grid-row:1;height:145px;align-self:center}
+  .mic{height:105%;max-width:100%}
+  .stats{grid-column:1/-1;grid-row:2;gap:6px}
+  .stat{flex:1;width:auto;padding:8px 3px}
+  .stat .ic{width:23px;height:23px}
+  .stat b{font-size:14px}
+  .stat small{font-size:9px}
+
+  /* Secciones y tarjetas */
+  .sec-head h2{font-size:16px}
+  .sec-head{gap:6px}
+  .link{font-size:12px;white-space:nowrap}
+  .carousel{--h:clamp(140px,22dvh,185px)}
+  .car-btn{display:none}
+  .track{padding-inline:2px}
+  .rooms,.rooms.big{grid-template-columns:1fr;gap:8px}
+  .rooms.big .room{flex-direction:row}
+  .rooms.big .room__thumbnail{width:34%;aspect-ratio:1}
+  .room__thumbnail{width:78px}
+  .room__title{font-size:14px}
+  .room__meta{font-size:11px}
+  .offer-grid,.songs{grid-template-columns:1fr}
+  .promo-intro{padding:18px 14px}
+  .promo-intro .sec-head{align-items:flex-start}
+  .promo-intro .sec-head h2{font-size:19px}
+  .offer-card{padding:0}
+  .offer-card__visual{height:190px}
+  .offer-card__body{min-height:0;padding:16px}
+  .panel{padding:22px 16px}
+  .panel.contact-panel{padding:12px}
+  .contact-panel #extraTitle{font-size:22px}
+  .contact-hero{min-height:300px}
+  .contact-hero::after{background:linear-gradient(0deg,rgba(5,5,5,.96),rgba(5,5,5,.64) 62%,rgba(5,5,5,.12))}
+  .contact-hero__copy{padding:20px 16px}
+  .contact-hero__eyebrow{font-size:9px;letter-spacing:.14em}
+  .contact-hero__copy h3{font-size:29px}
+  .contact-hero__copy p{font-size:13px}
+  .contact-panel__details{grid-template-columns:minmax(0,1fr);gap:8px;margin-bottom:20px}
+  .contact-card{min-height:72px;padding:10px}
+  .contact-card__icon{width:38px;height:38px}
+  .contact-rooms__heading{align-items:flex-start;flex-direction:column}
+  .contact-rooms__gallery{grid-template-columns:minmax(0,1fr);gap:8px}
+  .contact-room{aspect-ratio:16/7}
+  .tabs{overflow-x:auto;scrollbar-width:none}
+  .tab{padding:9px 11px;font-size:12px;white-space:nowrap}
+  .agrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .agrid .artist-card__name{font-size:12px}
+  .pager{width:100%;gap:6px;overflow:hidden}
+  .pager button{flex:none;min-width:36px}
+
+  /* Filtros */
+  .js-filters{grid-template-columns:minmax(0,1fr);gap:8px}
+  /* En celular las categorías se guardan en un desplegable para evitar chips cortados. */
+  .chips{display:flex;flex-wrap:wrap;overflow:visible;margin:0;padding:0}
+  .chip-menu-toggle{width:100%;min-height:44px;display:flex;align-items:center;gap:12px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:500 14px Poppins,sans-serif;text-align:left}
+  .hamburger-lines{display:flex;flex:none;flex-direction:column;gap:4px;width:18px}
+  .hamburger-lines i{display:block;width:18px;height:2px;border-radius:2px;background:var(--gold-t);transition:transform .2s,opacity .2s}
+  .chips.mobile-open .hamburger-lines i:first-child{transform:translateY(6px) rotate(45deg)}
+  .chips.mobile-open .hamburger-lines i:nth-child(2){opacity:0}
+  .chips.mobile-open .hamburger-lines i:last-child{transform:translateY(-6px) rotate(-45deg)}
+  .chips .chip{display:none;flex:1 1 calc(50% - 4px);min-width:0;justify-content:flex-start;border-radius:12px;white-space:normal}
+  .chips.mobile-open .chip{display:inline-flex}
+  .fbar{width:100%}
+  .search{flex:1;width:auto}
+  .catalog-filter__toggle{width:100%;min-height:44px}
+  .catalog-filter__grid{grid-template-columns:minmax(0,1fr);gap:8px}
+  .catalog-filter__field select{min-height:44px}
+
+  /* Modales: evitan desbordamiento horizontal */
+  .modal{width:100%;min-width:0;padding:12px;overflow:hidden;place-items:center}
+  .dialog,.dialog.wide{width:100%;min-width:0;max-width:600px;max-height:calc(100dvh - 24px);padding:18px;overflow-x:hidden}
+  .dialog h2{padding-right:42px;font-size:20px}
+  .dialog form,.dialog .grid,.dialog .f{width:100%;min-width:0}
+  .dialog .grid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .dialog .f.full{grid-column:auto}
+  .dialog .f input,.dialog .f select{min-width:0;max-width:100%;height:44px}
+  .estimate{gap:12px;flex-wrap:wrap}
+  .estimate b{font-size:18px}
+  .actions{position:static;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding:0;background:none}
+  .actions button{min-width:0;padding-inline:10px}
+}
+
+/* Pantallas bajas / dispositivos pequeños */
+@media (max-width:767px) and (max-height:700px){
+  #view-home{gap:8px}
+  #view-home .banner{padding-block:12px}
+  #view-home .b-mic{height:120px}
+  #view-home .stat{padding-block:6px}
+  #view-home .carousel{--h:clamp(112px,19dvh,150px)}
+  #view-home .track{padding-block:6px 8px}
+}
+@media (max-width:380px){
+  /* Encabezado compacto: menú | marca | tema + cuenta, sin solapes */
+  .top{gap:8px;padding:0 10px}
+  .top-actions{gap:8px}
+  .switch{width:52px;height:28px}
+  .switch .knob{width:22px;height:22px}
+  html[data-theme="dark"] .switch .knob{transform:translateX(24px)}
+  .avatar{width:36px;height:36px}
+  .brand{left:42%}
+  .modal{padding:8px}
+  .dialog,.dialog.wide{padding:16px;border-radius:16px;max-height:calc(100dvh - 16px)}
+  .actions{grid-template-columns:1fr}
+}
+@media (max-width:360px){
+  .brand{left:42%}
+  .brand-txt b{font-size:13px}
+  .b-title{font-size:29px}
+  .b-mic{height:125px}
+  .stat small{font-size:8px}
+  .bn span{font-size:9px}
+}
+@media (hover:none){.car-btn{display:none}}
+@media (max-height:540px) and (min-width:768px){.banner{height:170px}.carousel{--h:120px}}
+
+/* BLOQUE 2 — controles táctiles y espacio para el teclado virtual en celular.
+   El menú inferior se oculta mientras un campo está enfocado para no quitarle
+   espacio visible al formulario cuando aparece el teclado del dispositivo. */
+@media (max-width:767px){
+  .app:has(input:focus,select:focus,textarea:focus){grid-template-rows:auto minmax(0,1fr) 0}
+  .app:has(input:focus,select:focus,textarea:focus) .bnav{display:none}
+  .tab,.chip,.sub-chip,.fbtn,.pager button,.bn,.close,
+  .btn-gold,.btn-ghost,.auth-tab,.reservation-card__cancel,.actions button{min-width:44px;min-height:44px}
+  .chips,.subs-in,.fbar,.pager,.actions,.profile-actions{gap:8px}
+  .pager button{flex:none}
+  .songs__item{min-width:0;gap:8px;padding:8px}
+  .songs__details{flex:1;min-width:0}
+  .room__title,.reservation-card__title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+
+/* En landscape con poca altura, compacta encabezado y banner y permite
+   desplazar la vista de inicio para que el contenido no quede bajo la cabecera. */
+@media (orientation:landscape) and (max-height:500px){
+  :root{--hh:48px}
+  .top{height:var(--hh);min-height:var(--hh);padding-inline:12px}
+  .logo{--d:34px}
+  .brand-txt b{font-size:15px}
+  .brand-txt small{font-size:6px}
+  .main{padding:6px 10px}
+  .view{gap:8px}
+  .banner{height:clamp(105px,34dvh,155px);min-height:0;padding-block:8px}
+  .b-title{font-size:clamp(28px,5vw,42px)}
+  .b-mic{height:100px}
+  .stat{padding:6px}
+  .stat .ic{width:22px;height:22px}
+  .stat b{font-size:13px}
+  .carousel{--h:clamp(95px,27dvh,130px)}
+  .dialog{max-height:calc(100dvh - 12px);padding:14px}
+  .pic{max-height:26dvh;margin-bottom:8px}
+  .bnav{min-height:44px;padding-block:2px}
+  .bn{min-height:40px;padding-block:2px}
+}
+
+/* Marco PWA de escritorio: conserva el diseño Karaoke Tulum dentro de un
+   contenedor centrado con proporción de dispositivo; en móvil/tablet no aplica. */
+@media (min-width:1024px) and (max-width:1279px){
+  body{display:grid;place-items:center;padding:16px;background:var(--bg2)}
+  .app{position:relative;width:min(768px,calc(100vw - 32px));max-width:768px;height:min(900px,calc(100dvh - 32px));min-height:min(560px,calc(100dvh - 32px));margin:auto;overflow:hidden;border:8px solid #171512;border-radius:28px;box-shadow:0 0 0 1px var(--gold),0 24px 70px rgba(0,0,0,.45)}
+  .top{justify-content:flex-start;padding:0 14px;gap:10px}
+  .topnav{display:none}
+  .brand{position:absolute;left:50%;transform:translateX(-50%);margin:0}
+  .top-actions{margin-left:auto}
+  .shell{overflow:hidden}
+  .side,body:not(.menu-open) .side{position:absolute;top:0;right:auto;bottom:0;left:0;z-index:50;width:min(300px,84%);margin:0;padding:14px 10px;border-width:1px;border-radius:0 16px 16px 0;opacity:1;transform:translateX(-105%)}
+  body.menu-open .side{transform:none}
+  .side-in{width:100%}
+  .main{padding:10px}
+  .bnav{display:grid;width:100%;min-height:60px;grid-template-columns:repeat(5,minmax(0,1fr))}
+  .bn{min-width:0}
+  .overlay{position:absolute;inset:var(--hh) 0 0}
+  body.menu-open .overlay{opacity:1;visibility:visible}
+  .modal{position:fixed;top:50%;right:auto;bottom:auto;left:50%;width:min(768px,calc(100vw - 32px));height:min(900px,calc(100dvh - 32px));transform:translate(-50%,-50%);padding:16px;border-radius:28px}
+  .catalog-filter__toggle{width:100%}
+}
